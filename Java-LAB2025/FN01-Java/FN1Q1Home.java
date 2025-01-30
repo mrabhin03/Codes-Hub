@@ -30,6 +30,7 @@ class Door extends Home{
         return (homecost+wincost+doorcost);
     }
 }
+
 class Windows extends Home{
     public int cost;
     Windows(int cost){
