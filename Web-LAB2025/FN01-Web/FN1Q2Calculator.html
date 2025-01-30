@@ -33,6 +33,7 @@
 </head>
 <body>
     <div class="calculator">
+
         <input type="text"  id="out" readonly>
         
         <button onclick="sendNumber('7')">7</button>
@@ -57,18 +58,21 @@
         
     </div>
     <script>
+        
         OutBox=document.getElementById("out");
         function sendNumber(num){
             OutBox.value+=num;
-            
         }
+
         function clearData(){
             OutBox.value="";
         }
+
         function Calculate(){
             ValesD=OutBox.value.replace('x','*')
             OutBox.value=eval(ValesD)
         }
+
     </script>
 </body>
 </html>
