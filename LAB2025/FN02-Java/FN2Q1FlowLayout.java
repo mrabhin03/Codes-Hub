@@ -6,6 +6,7 @@ class FN2Q1FlowLayout extends JFrame{
         setSize(400,400);
         setLayout(new FlowLayout());
         setVisible(true);
+        
         add(new Button("Button1"));
         add(new Button("Button2"));
         add(new Button("Button3"));
