@@ -13,6 +13,7 @@ class FN2Q1FlowLayout extends JFrame{
         add(new Button("Button4"));
         add(new Button("Button5"));
         add(new Button("Button6"));
+        
     }
     public static void main(String ar[]){
         new FN2Q1FlowLayout();
