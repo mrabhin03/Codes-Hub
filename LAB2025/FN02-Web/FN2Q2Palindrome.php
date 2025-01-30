@@ -11,19 +11,19 @@
         <button type='submit'>Check</button>
     </form>
     <?php
-    function palindrome($Value){
-        if (str_replace(" ","",$Value)==""){
-            return false;
+        function palindrome($Value){
+            if (str_replace(" ","",$Value)==""){
+                return false;
+            }
+            return ($Value==strrev($Value));
         }
-        return ($Value==strrev($Value));
-    }
-    if(isset($_POST['Palin'])){
-        if(palindrome($_POST['Palin'])){
-            echo $_POST['Palin']." is a Palindrome ";
-        }else{
-            echo $_POST['Palin']." is Not a palindrome ";
+        if(isset($_POST['Palin'])){
+            if(palindrome($_POST['Palin'])){
+                echo $_POST['Palin']." is a Palindrome ";
+            }else{
+                echo $_POST['Palin']." is Not a palindrome ";
+            }
         }
-    }
     ?>
 </body>
 </html>
