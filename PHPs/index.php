@@ -26,7 +26,7 @@
                                     if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
                                         ?>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $item;?>'s Programs</a>
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $item;?></a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?php echo $item;?>')">All</a></li>
                                             <?php
