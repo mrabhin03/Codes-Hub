@@ -1,5 +1,3 @@
-
-
 class Home{
     public int length,width,cost,doors,windows;
     void getdata(int length,int width,int cost,int doors,int windows){
@@ -9,7 +7,6 @@ class Home{
         this.doors=doors;
         this.windows=windows;
     }
-
     double HomeTotalCost(){
         return(length*width)*cost;
     }
@@ -23,7 +20,6 @@ class Door extends Home{
     double DoorCost(){
         return cost*super.doors;
     }
-
     double TotalCost(Windows obj){
         double homecost=HomeTotalCost();
         double wincost=obj.WindowCost();
@@ -52,12 +48,10 @@ class Windows extends Home{
 
 public class FN1Q1Home{
     public static void main(String ar[]){
-        
         Door doorsobj=new Door(2000);
         Windows Windowsobj=new Windows(3000);
         doorsobj.getdata(30,23,500,8,10);
         Windowsobj.getdata(30,23,500,8,10);
-
         System.out.println("Total Cost is : "+doorsobj.TotalCost(Windowsobj));
     }
 }
