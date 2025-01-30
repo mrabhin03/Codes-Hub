@@ -1,0 +1,1 @@
+Write a program to check whether the string is palindrome or not using PHP.
