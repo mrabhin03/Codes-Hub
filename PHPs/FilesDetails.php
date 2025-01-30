@@ -1,6 +1,9 @@
 <div class="code-main">
 <?php
+$Nots=["index.html","CodeView.php"];
+$ExtensionNot=["class","txt"];
 function getJavaFiles($directory, $rootDir = null,$Search) {
+    global $ExtensionNot;
     $javaFiles = []; 
     if ($rootDir === null) {
         $rootDir = basename($directory);
@@ -13,7 +16,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 $itemPath = $directory . DIRECTORY_SEPARATOR . $item;
                 if (is_dir($itemPath)) {
                     $javaFiles = array_merge($javaFiles, getJavaFiles($itemPath, $rootDir,$Search));
-                } elseif (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) !== 'class' && stripos(basename($itemPath), $Search) === 0)
+                } elseif (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION)) ,$ExtensionNot) && stripos(basename($itemPath), $Search) === 0)
                 {
                     $relativePath = str_replace('../','',$itemPath);
                     $relativePath = str_replace('\\','/',$relativePath);
@@ -50,7 +53,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
-            if (is_file($itemPath) && pathinfo($itemPath, PATHINFO_EXTENSION) !== 'class' && stripos(basename($itemPath), $Search) === 0) {
+            if (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION) ),$ExtensionNot) && stripos(basename($itemPath), $Search) === 0) {
                 $relativePath = str_replace('../','',$itemPath);
                 $relativePath=str_replace('\\','/',$relativePath);
                 $MainTemp=explode('/',$relativePath);
@@ -82,11 +85,6 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
     } else {
         echo "The specified folder does not exist.";
     }
-    ?>
-
-
-    <?php 
-    $Nots=["index.html","CodeView.php"];
         if(count($AllFiles)==0){
             echo "<div style='grid-column: span 4;font-size:20px;text-align:center;color:white;'>No File Found</div>";
             die();
@@ -96,7 +94,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         });
         foreach ($AllFiles as $file) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
-                if (pathinfo($file['FileName'], PATHINFO_EXTENSION)!== 'class' && !in_array($file['FileName'], $Nots)) {
+                if (!in_array((pathinfo($itemPath, PATHINFO_EXTENSION) ),$ExtensionNot) && !in_array($file['FileName'], $Nots)) {
                     $FilePath= base64_encode($file['Path']);
                     $timestamp = strtotime($file['DateTime']);
                     $today = date('Y-m-d');

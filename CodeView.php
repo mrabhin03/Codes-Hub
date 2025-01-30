@@ -15,6 +15,12 @@
     $decryptedData = base64_decode($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ']);
     $filePath=$decryptedData;
     $fileContent = file_get_contents($filePath);
+    $filePathTxt = preg_replace('/\.[^.]+$/', '', $filePath) . ".txt";
+
+    if (file_exists($filePathTxt)) {
+        $Question = file_get_contents($filePathTxt);
+    }
+
     if ($fileContent === false) {
         die("Error reading the file!");
     }
@@ -31,13 +37,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow:auto;
         }
         ::-webkit-scrollbar{
             width: 0px;
         }
         h1 {
             color: white;
-            margin: 15px 0px;
+            margin: 0px;
+            margin-top:15px;
             font-size: 25px;
         }
         form {
@@ -103,7 +111,15 @@
            font-size: 15px;
            overflow: auto;
         }
+        .QnsP{
+          max-width: 700px;
+          color:white
+        }
         @media (max-width:550px) {
+          .QnsP{
+            font-size: 11px;
+            line-height:15px
+          }
           #inputBox{
             font-size: 11px;
           }
@@ -118,6 +134,7 @@
 </head>
 <body id='MainBody'>
     <h1><?php echo $fileName;?></h1>
+    <?=(isset($Question))?"<p class='QnsP'>Q: ".$Question."</p>":""?>
     <form  method="post">
         <div id="header-details">
           <button type="button" onclick="copyText()"><ion-icon id="copies" name="copy-outline"></ion-icon> <b id="Copied">Copy</b> </button>
@@ -149,14 +166,14 @@
         const parent = document.getElementById('MainBody');
         const child = document.querySelectorAll('.language-javascript')[0];
 
-        parent.addEventListener(
-          'wheel',
-          (event) => {
-            child.scrollTop += event.deltaY; 
-            event.preventDefault(); 
-          },
-          { passive: false }
-        );
+        // parent.addEventListener(
+        //   'wheel',
+        //   (event) => {
+        //     child.scrollTop += event.deltaY; 
+        //     event.preventDefault(); 
+        //   },
+        //   { passive: false }
+        // );
 
 
     </script>
