@@ -117,8 +117,8 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
             <?php } ?>
             <h5 class="fw-bolder"  style='font-size:20px;margin-top:10px;'><?php $file1=$file['FileName']; echo $file1;?></h5>
                 <span style='font-size:15px; color:#cfcfcf;'>
-                    Type: <span style='color:white'><?php echo $file['Type'] ?></span><br>
-                    Creator: <b><?php echo $file['Creator'] ?></b><br>
+                    Type: <span style='color:white'><?php echo ( explode("-",$file['Type']))[1] ?></span><br>
+                    Qns: <b><?php echo $file['Creator'] ?></b><br>
                     <?php  echo date('Y-m-d', $timestamp); ?><br>
             </span>
             </div>
