@@ -94,7 +94,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         });
         foreach ($AllFiles as $file) {
             if ($file['FileName'] !== '.' && $file['FileName'] !== '..') {
-                if (!in_array((pathinfo($itemPath, PATHINFO_EXTENSION) ),$ExtensionNot) && !in_array($file['FileName'], $Nots)) {
+                if (!in_array((pathinfo($file['Path'], PATHINFO_EXTENSION) ),$ExtensionNot) && !in_array($file['FileName'], $Nots)) {
                     $FilePath= base64_encode($file['Path']);
                     $timestamp = strtotime($file['DateTime']);
                     $today = date('Y-m-d');
