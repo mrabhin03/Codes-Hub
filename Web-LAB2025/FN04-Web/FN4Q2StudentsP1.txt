@@ -1,0 +1,1 @@
+Write a program to insert student details into the student database using PHP and MySQL.
