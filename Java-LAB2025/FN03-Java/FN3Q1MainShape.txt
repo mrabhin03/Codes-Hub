@@ -1,0 +1,1 @@
+Create a base class called Shape. It contains two methods getxyvalue() and showxyvalue() for accepting co-ordinates and to display the same respectively. Create the subclass called Rectangle which contains a method to display the length and breadth of the rectangle called showxyvalue(). Write a Java program to implement the concept using function overriding.
