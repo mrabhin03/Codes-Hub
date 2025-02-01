@@ -1,4 +1,8 @@
 <?php
+
+    //   ---Inserting Students details(to avoid multiple entries)---
+
+
 $conn=mysqli_connect('localhost','root','','Students');
 if(!$conn){
     die("Connection Error");
