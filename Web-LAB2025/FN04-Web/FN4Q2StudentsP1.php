@@ -1,5 +1,9 @@
 
 <?php
+
+    //--- Form to submit Students Details And details show 
+
+
     $conn=mysqli_connect('localhost','root','','Students');
     if(!$conn){
         die("Connection Error");
