@@ -1,7 +1,7 @@
 
-// ---Thread using runnable interface
+// ---Thread using Thread Class
 
-class T1 implements Runnable {
+class T1 extends Thread {
     public void run(){
         System.out.println("Thread Started: ");
         for(int i=1;i<=10;i++){
@@ -12,8 +12,7 @@ class T1 implements Runnable {
 }
 public class F4Q1Thread {
     public static void main(String ar[]){
-        T1 obj=new T1();
-        Thread threadobj=new Thread(obj);
+        T1 threadobj=new T1();
         threadobj.start();
     }
 }
