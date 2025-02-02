@@ -1,0 +1,5 @@
+Write a program to implement file management in Java using the following operations: <br>
+a) Creating a file<br>
+b) Reading a file<br>
+c) Writing into a file<br>
+d) Deleting a file
