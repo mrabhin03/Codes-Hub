@@ -10,7 +10,7 @@ class T1 extends Thread {
         System.out.println("Thread End");
     }
 }
-public class F4Q1Thread {
+public class FN4Q1Thread {
     public static void main(String ar[]){
         T1 threadobj=new T1();
         threadobj.start();
