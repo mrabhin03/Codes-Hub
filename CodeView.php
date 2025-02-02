@@ -67,7 +67,7 @@
             color:#ddd;
             padding: 10px;
             margin: 0px;
-            height:74vh;
+            height:fit-content;
             transition: border-color 0.3s ease;
             display: block;
             margin: 0px 0;
@@ -125,9 +125,6 @@
           }
           h1 {
             font-size: 18px;
-          }
-          .language-javascript{
-            height:77vh;
           }
         }
     </style>

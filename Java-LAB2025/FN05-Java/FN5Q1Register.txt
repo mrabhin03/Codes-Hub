@@ -1,0 +1,6 @@
+Write a Java program to make a student registration GUI using the following controls:<br>
+•	JTextField – to collect the name of student<br>
+•	JRadioButton - to collect the gender of student<br>
+•	JComboBox – to collect the course of student ( MSc, MCom, MA, MBA)<br>
+•	JButton - to submit the details <br><br>
+The program should also include the provision to display the entered student details.
