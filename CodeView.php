@@ -50,6 +50,7 @@
         }
         form {
             background-color: #333;
+            box-sizing: border-box;
             border-radius: 8px;
             padding: 15px;
             padding-bottom: 0;
