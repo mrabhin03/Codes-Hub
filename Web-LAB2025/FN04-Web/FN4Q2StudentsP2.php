@@ -14,6 +14,7 @@ if(isset($_POST['Roll'])){
     $SQL="INSERT INTO details ( `RollNo`, `Name`, `DOB`) VALUES ('$Roll','$Name','$DOB')";
     mysqli_query($conn,$SQL);
 }
+
 header('location:FN4Q2StudentsP1.php');
 
 
