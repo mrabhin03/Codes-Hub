@@ -3,6 +3,7 @@ import java.awt.*;
 
 class FN2Q1FlowLayout extends JFrame{
     FN2Q1FlowLayout(){
+        
         setSize(400,400);
         setLayout(new FlowLayout());
         setVisible(true);
