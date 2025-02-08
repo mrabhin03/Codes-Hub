@@ -1,7 +1,7 @@
 <div class="code-main">
 <?php
 $Nots=["index.html","CodeView.php"];
-$ExtensionNot=["class","txt"];
+$ExtensionNot=["class","txt","docx","pdf"];
 function getJavaFiles($directory, $rootDir = null,$Search) {
     global $ExtensionNot;
     $javaFiles = []; 

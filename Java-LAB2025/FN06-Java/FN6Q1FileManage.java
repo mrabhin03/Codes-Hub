@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
-public class AN1Q1FileManage {
+public class FN6Q1FileManage {
     public static void main(String ar[]){
         try{
 
