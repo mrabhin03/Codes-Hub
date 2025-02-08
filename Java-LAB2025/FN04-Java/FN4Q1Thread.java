@@ -1,5 +1,7 @@
 
+
 // ---Thread using Thread Class
+
 
 class T1 extends Thread {
     public void run(){
