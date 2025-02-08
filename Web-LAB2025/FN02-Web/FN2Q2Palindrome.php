@@ -14,6 +14,7 @@
 
     <?php
     
+    
         function palindrome($Value){
             if (str_replace(" ","",$Value)==""){
                 return false;
