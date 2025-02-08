@@ -80,6 +80,7 @@
     <script>
         ErrorObj=document.getElementById("Error");
         function Validation(){
+
             ErrorObj.textContent='';
             TheName=TheForm.EName.value;
             TheDOB=TheForm.EDOB.value;
@@ -98,8 +99,9 @@
                 ErrorObj.textContent=`Phone number must be 10 digit long`;
                 return false;
             }
+
             alert("Registration Complete")
-            return false;
+            return true;
         }
 
         function AGECHECK(DOB){
