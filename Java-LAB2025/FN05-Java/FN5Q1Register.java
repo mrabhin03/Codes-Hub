@@ -29,10 +29,12 @@ public class FN5Q1Register extends JFrame implements ActionListener{
         R1=new JRadioButton("Male");
         R2=new JRadioButton("Female");
         R3=new JRadioButton("Other");
+        
         ButtonGroup gp=new ButtonGroup();
         gp.add(R1);
         gp.add(R2);
         gp.add(R3);
+
         R1.setBounds(130,100,80,30);
         add(R1);
         R2.setBounds(210,100,80,30);
