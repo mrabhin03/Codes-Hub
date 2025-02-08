@@ -47,6 +47,7 @@ class Windows extends Home{
     }
 }
 
+
 public class FN1Q1Home{
     public static void main(String ar[]){
         Door doorsobj=new Door(2000);
