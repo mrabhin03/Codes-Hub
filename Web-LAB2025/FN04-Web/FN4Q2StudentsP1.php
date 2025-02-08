@@ -10,6 +10,7 @@
     }
     $Select="SELECT * FROM details ORDER BY RollNo";
     $data=mysqli_query($conn,$Select);
+    
 ?>
 
 <!DOCTYPE html>
