@@ -1,0 +1,2 @@
+ Write a Java program to find the area of rectangle and circle using the concept of
+interface.
