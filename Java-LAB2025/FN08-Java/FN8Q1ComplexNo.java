@@ -1,5 +1,5 @@
 
-public class FN8ComplexNo {
+public class FN8Q1ComplexNo {
     public static void main(String ar[]){
         Complex obj1=new Complex(2.4,5.3);
         Complex obj2=new Complex(1.6,4.7);
