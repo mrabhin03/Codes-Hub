@@ -10,6 +10,7 @@ class Shape{
     }
 }
 
+
 class Rectangle  extends Shape{
 
     int x,y;
@@ -21,6 +22,7 @@ class Rectangle  extends Shape{
         System.out.println("X: "+x+"  Y: "+y);
     }
 }
+
 
 class FN3Q1MainShape{
     public static void main(String ar[]){
