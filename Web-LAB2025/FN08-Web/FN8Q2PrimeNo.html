@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Prime</title>
+</head>
+<body>
+    <form name="MyForm">
+        Input <input type="Number" name="Num" placeholder="Enter the number">
+        <button type="button" onclick="CheckPrime()">Check Prime</button><br>
+        <p id="Out">Is a Palindrom</p>
+    </form>
+    <script>
+
+        Outobj=document.getElementById("Out");
+
+        function CheckPrime(){
+
+            DataV=MyForm.Num.value;
+            flag=0;
+            for(let i=2;i<=DataV/2;i++){
+                if((DataV%i)==0){
+                    flag++;
+                    break;
+                }
+            }
+            if(flag==0){
+                Outobj.innerHTML=`${DataV} is a prime number`;
+            }else{
+                Outobj.innerHTML=`${DataV} is not a prime number`;
+            }
+        }
+    </script>
+</body>
+</html>
