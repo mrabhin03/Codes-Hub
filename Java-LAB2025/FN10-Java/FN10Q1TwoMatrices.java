@@ -49,7 +49,7 @@ public class FN10Q1TwoMatrices {
             }
 
             System.out.println("Result Matrix: ");
-            int result[][]=new int[n][q];
+            int result[][]=new int[m][p];
             for(int i=0;i<n;i++){
                 for(int j=0;j<q;j++){
                     for(int k=0;k<m;k++){
@@ -57,7 +57,6 @@ public class FN10Q1TwoMatrices {
                     }
                 }
             }
-
             for(int i=0;i<n;i++){
                 for(int j=0;j<q;j++){
                     System.out.print(result[i][j]+" ");
