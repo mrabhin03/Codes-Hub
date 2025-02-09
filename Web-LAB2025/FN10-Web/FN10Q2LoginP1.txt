@@ -1,0 +1,2 @@
+Design and implement a PHP login page that validates user credentials, creates a
+session, and restricts access to authorized users.
