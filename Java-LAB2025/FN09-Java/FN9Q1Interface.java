@@ -22,7 +22,7 @@ class Circle implements Shape{
         this.Radius=Radius;
     }
 
-    double findArea(){
+    public double findArea(){
         return Math.PI*(Radius*Radius);
     }
 }
@@ -34,7 +34,7 @@ class Rectangle implements Shape{
         this.Width=Width;
     }
 
-    double findArea(){
+    public double findArea(){
         return (Lenght*Width);
     }
 }
