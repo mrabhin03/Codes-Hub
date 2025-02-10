@@ -12,11 +12,11 @@ public class FN9Q1Interface {
 
 
 interface Shape{
-    void getDetails();
+   
     double findArea();
 }
 
-class Circle extends Shape{
+class Circle implements Shape{
     double Radius;
     void getDetails(double Radius){
         this.Radius=Radius;
@@ -27,7 +27,7 @@ class Circle extends Shape{
     }
 }
 
-class Rectangle extends Shape{
+class Rectangle implements Shape{
     double Lenght,Width;
     void getDetails(double Lenght,double Width){
         this.Lenght=Lenght;
