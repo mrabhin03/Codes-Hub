@@ -16,7 +16,7 @@ interface Shape{
     double findArea();
 }
 
-class Circle{
+class Circle extends Shape{
     double Radius;
     void getDetails(double Radius){
         this.Radius=Radius;
@@ -27,7 +27,7 @@ class Circle{
     }
 }
 
-class Rectangle{
+class Rectangle extends Shape{
     double Lenght,Width;
     void getDetails(double Lenght,double Width){
         this.Lenght=Lenght;
