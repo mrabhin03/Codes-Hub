@@ -13,13 +13,13 @@ class Shape{
 
 class Rectangle  extends Shape{
 
-    int x,y;
-    Rectangle(int x, int y){
-        this.x=x;
-        this.y=y;
+    int lenght, breath;
+    Rectangle(int lenght, int breath){
+        this.lenght=lenght;
+        this.breath=breath;
     }
     public void showxyvalue(){
-        System.out.println("X: "+x+"  Y: "+y);
+        System.out.println("Lenght is: "+lenght+"  Breath is: "+breath);
     }
 }
 
