@@ -153,7 +153,6 @@
             Copied.innerHTML="Copy"
         }
 
-
         code=[];
         code.push(<?php echo json_encode($fileContent); ?>);
 
