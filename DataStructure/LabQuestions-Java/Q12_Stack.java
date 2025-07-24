@@ -16,10 +16,10 @@ public class Q12_Stack {
                     stack.push(value);
                     break;
                 case 2:
-                    System.out.println("Value popped: "+stack.pop());
+                    stack.pop();
                     break;
                 case 3:
-                    System.out.println("Top value is :"+stack.peek());
+                    stack.peek();
                     break;
                 case 4:
                     stack.display();
@@ -48,19 +48,19 @@ class Stack{
         }
         stack[++top]=value;
     }
-    int peek(){
+    void  peek(){
         if(top==-1){
             System.out.println("No Element");
-            return -1;
+            return;
         }
-        return stack[top];
+        System.out.println("Top value is :"+stack[top]);
     }
-    int pop(){
+    void pop(){
         if(top==-1){
             System.out.println("Stack underFlow");
-            return -1;
+            return;
         }
-        return stack[top--];
+        System.out.println("Value popped:"+stack[top--]);
     }
     void display(){
          if(top==-1){
