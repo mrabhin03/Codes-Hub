@@ -8,10 +8,11 @@ public class Q22_BinarySearchTree {
         Node root=new Node(value);
         BinarySearchTree tree=new BinarySearchTree(root);
         System.out.println("Press 1 to insert \nPress 2 to show in Postorder");
-        System.out.println("Press 3 to show in Preorder \nPress 4 to show in Inorder \nPress 5 to exit");
+        System.out.println("Press 3 to show in Preorder \nPress 4 to show in Inorder");
+        System.out.println("Press 5 to exit");
         outerLoop:
         while(true){
-            System.out.println("\nEnter your choose");
+            System.out.println("\n\nEnter your choose");
             int cho=read.nextInt();
             switch(cho){
                 case 1:
@@ -25,9 +26,11 @@ public class Q22_BinarySearchTree {
                     tree.postOrder(root);
                     break;
                 case 3:
+                    System.out.println("The PreOrder of the Tree: ");
                     tree.preOrder(root);
                     break;
                 case 4:
+                    System.out.println("The InOrder of the Tree: ");
                     tree.inOrder(root);
                     break;
                 case 5:
@@ -69,13 +72,13 @@ class BinarySearchTree{
         }
         postOrder(root.left);
         postOrder(root.right);
-        System.out.println(root.data+" ");
+        System.out.print(root.data+" ");
     }
     void preOrder(Node root){
         if(root==null){
             return;
         }
-        System.out.println(root.data+" ");
+        System.out.print(root.data+" ");
         preOrder(root.left);
         preOrder(root.right);
     }
@@ -84,7 +87,7 @@ class BinarySearchTree{
             return;
         }
         inOrder(root.left);
-        System.out.println(root.data+" ");
+        System.out.print(root.data+" ");
         inOrder(root.right);
         
     }
