@@ -3,16 +3,16 @@ import java.util.Scanner;
 public class Q22_BinarySearchTree {
     static Scanner read=new Scanner(System.in);
     public static void main(String ar[]){
-        System.out.println("Enter the root value: ");
+        System.out.print("Enter the root value: ");
         int value=read.nextInt();
         Node root=new Node(value);
         BinarySearchTree tree=new BinarySearchTree(root);
-        System.out.println("Press 1 to insert \nPress 2 to show in Postorder");
+        System.out.println("\nPress 1 to insert \nPress 2 to show in Postorder");
         System.out.println("Press 3 to show in Preorder \nPress 4 to show in Inorder");
-        System.out.println("Press 5 to exit");
+        System.out.print("Press 5 to exit");
         outerLoop:
         while(true){
-            System.out.println("\n\nEnter your choose");
+            System.out.print("\n\nEnter your choose: ");
             int cho=read.nextInt();
             switch(cho){
                 case 1:

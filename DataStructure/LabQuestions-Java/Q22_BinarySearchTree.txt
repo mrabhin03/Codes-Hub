@@ -2,51 +2,46 @@ Write a Java program to implement a Binary Search Tree (BST).
 
 OUTPUT:
 
-Enter the root value: 
-10
-Press 1 to insert 
+Enter the root value: 15
+
+Press 1 to insert
 Press 2 to show in Postorder
 Press 3 to show in Preorder
 Press 4 to show in Inorder
 Press 5 to exit
 
+Enter your choose: 1
+Enter the Value: 20
 
-Enter your choose
-1
+
+Enter your choose: 1
+Enter the Value: 18
+
+
+Enter your choose: 1
+Enter the Value: 12
+
+
+Enter your choose: 1
 Enter the Value: 5
 
 
-Enter your choose
-1
-Enter the Value: 24
+Enter your choose: 1
+Enter the Value: 9
 
 
-Enter your choose
-1
-Enter the Value: 7
+Enter your choose: 1
+Enter the Value: 2
 
 
-Enter your choose
-1
-Enter the Value: 3
-
-
-Enter your choose
-1
-Enter the Value: 36
-
-
-Enter your choose
-2
+Enter your choose: 2
 The PostOrder of the Tree: 
-3 7 5 36 24 10
+2 9 5 12 18 20 15
 
-Enter your choose
-3
+Enter your choose: 3
 The PreOrder of the Tree: 
-10 5 3 7 24 36
+15 12 5 2 9 20 18
 
-Enter your choose
-4
+Enter your choose: 4
 The InOrder of the Tree: 
-3 5 7 10 24 36
+2 5 9 12 15 18 20
