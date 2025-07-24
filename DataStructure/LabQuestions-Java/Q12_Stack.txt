@@ -1,0 +1,40 @@
+Write a Java program to implement a stack using an array.
+
+OUTPUT:
+
+Press 1 to Push 
+Press 2 to pop
+Press 3 to Peek to element 
+Press 4 to Display all elements
+Press 5 to exit
+
+Enter your choose
+1
+Enter value to push
+10
+
+Enter your choose
+1
+Enter value to push
+20
+
+Enter your choose
+1
+Enter value to push
+30
+
+Enter your choose
+3
+Top value is :30
+
+Enter your choose
+4
+The elements are: 10 20 30 
+
+Enter your choose
+2
+Value popped: 30
+
+Enter your choose
+4
+The elements are: 10 20
