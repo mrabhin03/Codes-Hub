@@ -41,7 +41,7 @@ public class Q21_BinaryTree {
             return;
         }
         postOrder(theNode.left);
-        System.out.print(theNode.data+" ");
         postOrder(theNode.right);
+        System.out.print(theNode.data+" ");
     }
 }

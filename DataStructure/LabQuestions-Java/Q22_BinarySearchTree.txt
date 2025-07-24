@@ -1,0 +1,4 @@
+Write a Java program to implement a Binary Search Tree (BST).
+
+OUTPUT:
+
