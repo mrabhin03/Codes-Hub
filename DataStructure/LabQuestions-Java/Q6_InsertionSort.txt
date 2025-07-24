@@ -1,0 +1,13 @@
+Write a Java program to sort an array using the Insertion Sort algorithm.
+
+OUTPUT:
+
+Enter the Array size: 5
+Enter the elements: 
+9
+2
+7
+4
+6
+Sorted Array: 
+2 4 6 7 9
