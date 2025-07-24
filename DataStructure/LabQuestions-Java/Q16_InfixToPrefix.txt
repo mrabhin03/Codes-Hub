@@ -1,0 +1,5 @@
+Write a Java program to convert an infix expression to a prefix expression using a stack.
+
+OUTPUT:
+Enter the Infix Value: (A-B/C)*(A/K-L)
+The Prefix expression of (A-B/C)*(A/K-L) is : *-A/BC-/AKL
