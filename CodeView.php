@@ -132,7 +132,7 @@
 </head>
 <body id='MainBody'>
     <h1><?php echo $fileName;?></h1>
-    <?=(isset($Question))?"<p class='QnsP'>Q: ".$Question."</p>":""?>
+    <?=(isset($Question))?"<p class='QnsP'>Q: ".nl2br($Question)."</p>":""?>
     <form  method="post">
         <div id="header-details">
           <button type="button" onclick="copyText()"><ion-icon id="copies" name="copy-outline"></ion-icon> <b id="Copied">Copy</b> </button>
