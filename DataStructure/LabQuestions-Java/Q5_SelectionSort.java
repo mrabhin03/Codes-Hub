@@ -22,6 +22,7 @@ public class Q5_SelectionSort {
             int temp = array[minIndex];
             array[minIndex] = array[i];
             array[i] = temp;
+            
         }
 
         System.out.println("Sorted Array: ");
