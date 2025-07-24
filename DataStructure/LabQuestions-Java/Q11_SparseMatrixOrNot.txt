@@ -1,0 +1,29 @@
+Write a Java program to check whether a given matrix is a sparse matrix or not.
+
+OUTPUT:
+
+Enter the row Size: 4
+Enter the column Size: 4
+Enter the Matrix Value: 
+8
+0
+0
+0
+9
+0
+9
+0
+8
+0
+0
+0
+0
+0
+7
+5
+The Matrix: 
+  8  0  0  0
+  9  0  9  0
+  8  0  0  0
+  0  0  7  5
+Is a Sparse Matrix
