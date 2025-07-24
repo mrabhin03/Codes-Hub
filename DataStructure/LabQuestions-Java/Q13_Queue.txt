@@ -1,0 +1,44 @@
+Write a Java program to implement a queue using an array.
+
+OUTPUT:
+
+Enter the queue Size: 3
+Press 1 to insert 
+Press 2 to delete
+Press 3 to Peek to element
+Press 4 to Display all elements
+Press 5 to exit
+
+Enter your choose
+1
+Enter the value to insert: 10
+
+Enter your choose
+1
+Enter the value to insert: 20
+
+Enter your choose
+1
+Enter the value to insert: 30
+
+Enter your choose
+1
+Queue is full
+
+Enter your choose
+4
+Queue values are: 
+10 20 30
+
+Enter your choose
+2
+Deleted value is: 30
+
+Enter your choose
+3
+Front value is: 20
+
+Enter your choose
+4
+Queue values are: 
+20 30
