@@ -16,7 +16,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
                 $itemPath = $directory . DIRECTORY_SEPARATOR . $item;
                 if (is_dir($itemPath)) {
                     $javaFiles = array_merge($javaFiles, getJavaFiles($itemPath, $rootDir,$Search));
-                } elseif (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION)) ,$ExtensionNot) && stripos(basename($itemPath), $Search) === 0)
+                } elseif (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION)) ,$ExtensionNot) && stripos(basename($itemPath), $Search) !== false)
                 {
                     $relativePath = str_replace('../','',$itemPath);
                     $relativePath = str_replace('\\','/',$relativePath);
@@ -53,7 +53,7 @@ function getJavaFiles($directory, $rootDir = null,$Search) {
         foreach ($items as $item) {
             $javaFiles=[];
             $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
-            if (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION) ),$ExtensionNot) && stripos(basename($itemPath), $Search) === 0) {
+            if (is_file($itemPath) && !in_array((pathinfo($itemPath, PATHINFO_EXTENSION) ),$ExtensionNot) && stripos(basename($itemPath), $Search) !== false) {
                 $relativePath = str_replace('../','',$itemPath);
                 $relativePath=str_replace('\\','/',$relativePath);
                 $MainTemp=explode('/',$relativePath);
