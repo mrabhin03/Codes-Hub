@@ -16,6 +16,7 @@ public class Q4_BinarySearch {
 
         int left = 0, right = n - 1, mid;
         boolean found = false;
+        
 
         while (left <= right) {
             mid = left + (right - left) / 2;
