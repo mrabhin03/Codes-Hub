@@ -1,0 +1,14 @@
+Write a Java program to perform linear search on an array.
+
+OUTPUT:
+
+Enter the Array size: 6
+Enter the elements: 
+1
+7
+5
+3
+5
+2
+Enter the element to search: 7
+Element found at position: 2
