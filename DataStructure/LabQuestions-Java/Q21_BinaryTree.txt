@@ -1,0 +1,63 @@
+Write a Java program to implement a binary tree.
+
+OUTPUT:
+
+Root Value
+Enter the value (-1 for no child): 15
+
+Enter the left Node value of 15
+Enter the value (-1 for no child): 1
+
+Enter the left Node value of 1
+Enter the value (-1 for no child): 23
+
+Enter the left Node value of 23
+Enter the value (-1 for no child): 22
+
+Enter the left Node value of 22
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 22
+Enter the value (-1 for no child): 34
+
+Enter the left Node value of 34
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 34
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 23
+Enter the value (-1 for no child): 28
+
+Enter the left Node value of 28
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 28
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 1
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 15
+Enter the value (-1 for no child): 44
+
+Enter the left Node value of 44
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 44
+Enter the value (-1 for no child): 43
+
+Enter the left Node value of 43
+Enter the value (-1 for no child): 44
+
+Enter the left Node value of 44
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 44
+Enter the value (-1 for no child): -1
+
+Enter the right Node value of 43
+Enter the value (-1 for no child): -1
+
+Post root of the tree is: 
+22 34 23 28 1 15 44 44 43
