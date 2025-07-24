@@ -13,5 +13,6 @@ public class Q1_ArrayInsertion {
         for(int i=0;i<n;i++){
             System.out.print(arr[i]+", ");
         }
+        read.close();
     }
 }
