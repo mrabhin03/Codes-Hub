@@ -32,7 +32,7 @@ Queue values are:
 
 Enter your choose
 2
-Deleted value is: 30
+Deleted value is: 10
 
 Enter your choose
 3

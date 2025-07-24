@@ -67,7 +67,7 @@ class Queue{
             delete=queue[front];
             front=rear=-1;
         }else{
-            delete=queue[rear];
+            delete=queue[front];
             front++;
         }
         System.out.println("Deleted value is: "+delete);
