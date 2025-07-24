@@ -31,6 +31,7 @@ public class Q12_Stack {
 
             }
         }
+        read.close();
     }
 }
 
