@@ -10,6 +10,7 @@ public class Q3_LinearSearch {
         for(int i = 0; i < n; i++){
             array[i] = read.nextInt();
         }
+        
         System.out.print("Enter the element to search: ");
         key = read.nextInt();
         read.close();
