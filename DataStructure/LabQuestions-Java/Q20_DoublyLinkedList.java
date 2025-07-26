@@ -4,7 +4,7 @@ public class Q20_DoublyLinkedList {
         Scanner read=new Scanner(System.in);
         DoublyLinkedList List=new DoublyLinkedList();
         System.out.println("Press 1 to insert at beginning \nPress 2 to insert at end");
-        System.out.println("Press 3 to Display \nPress 4 to exit");
+        System.out.println("Press 3 to delete at end\nPress 4 to Display \nPress 5 to exit");
         outerLoop:
         while(true){
             System.out.println("\nEnter your choose");
@@ -17,9 +17,12 @@ public class Q20_DoublyLinkedList {
                     List.insertAtEnd();
                     break;
                 case 3:
-                    List.display();
+                    List.deleteAtEnd();
                     break;
                 case 4:
+                    List.display();
+                    break;
+                case 5:
                     break outerLoop;
                 default:
                     System.out.println("Wrong input");
@@ -59,6 +62,22 @@ class DoublyLinkedList{
             head.prev=last;
             last=head;
         }
+    }
+    void deleteAtEnd(){
+        if(first==null){
+            System.out.println("No Element");
+            return;
+        }
+        if(first==last){
+            System.out.println("Deleted Value: "+first.n);
+            last=first=null;
+            return;
+        }
+        System.out.println("Deleted Value: "+last.n);
+        temp=last.prev;
+        temp.next=null;
+        last=temp;
+
     }
     void display(){
         if(first==null){

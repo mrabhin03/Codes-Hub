@@ -4,36 +4,37 @@ OUTPUT:
 
 Press 1 to insert at beginning 
 Press 2 to insert at end
-Press 3 to Display 
-Press 4 to exit
-
-Enter your choose
-2
-Enter the value to insert: 20
-
-Enter your choose
-2
-Enter the value to insert: 30
-
-Enter your choose
-3
-The values in Linked List are: 
-20 30
+Press 3 to delete at end
+Press 4 to Display
+Press 5 to exit
 
 Enter your choose
 1
 Enter the value to insert: 10
 
 Enter your choose
-3
-The values in Linked List are: 
-10 20 30
-
-Enter your choose
 1
 Enter the value to insert: 5
 
 Enter your choose
-3
+4
 The values in Linked List are: 
-5 10 20 30
+5 10
+
+Enter your choose
+2
+Enter the value to insert: 15
+
+Enter your choose
+4
+The values in Linked List are: 
+5 10 15
+
+Enter your choose
+3
+Deleted Value: 15
+
+Enter your choose
+4
+The values in Linked List are: 
+5 10
