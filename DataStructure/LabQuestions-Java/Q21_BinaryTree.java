@@ -36,6 +36,7 @@ public class Q21_BinaryTree {
         return theNode;
     }
 
+    
     static void postOrder(Node theNode){
         if(theNode==null){
             return;
