@@ -42,6 +42,7 @@ public class Q22_BinarySearchTree {
         }
     }
 }
+
 class BinarySearchTree{
     Node root,head;
     Scanner read=new Scanner(System.in);
