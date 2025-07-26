@@ -70,6 +70,7 @@ class StackLinkedList{
     }
 }
 
+
 class NODE{
     public NODE next=null;
     public int n;
