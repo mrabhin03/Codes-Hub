@@ -24,8 +24,9 @@
     if ($fileContent === false) {
         die("Error reading the file!");
     }
+    $folder = dirname($filePath);
     $fileName = basename($filePath);
-
+    echo "<script>const path=`$folder`;</script>"
   ?>
     <style>
         body {
@@ -116,6 +117,10 @@
           max-width: 700px;
           color:white
         }
+        .QnsP img{
+          width: 50%;
+          border-radius:8px
+        }
         @media (max-width:550px) {
           .QnsP{
             font-size: 11px;
@@ -132,7 +137,7 @@
 </head>
 <body id='MainBody'>
     <h1><?php echo $fileName;?></h1>
-    <?=(isset($Question))?"<p class='QnsP'>Q: ".nl2br($Question)."</p>":""?>
+    <?=(isset($Question))?"<p class='QnsP' id='QnsP'>Q: ".nl2br($Question)."</p>":""?>
     <form  method="post">
         <div id="header-details">
           <button type="button" onclick="copyText()"><ion-icon id="copies" name="copy-outline"></ion-icon> <b id="Copied">Copy</b> </button>
@@ -171,7 +176,13 @@
         //   },
         //   { passive: false }
         // );
-
+        function printData(){
+          obj=document.getElementById("QnsP")
+          obj.querySelectorAll("img").forEach(element => {
+            element.src=`${path}/${element.getAttribute("src")}`;
+          });
+        }
+        printData()
 
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
