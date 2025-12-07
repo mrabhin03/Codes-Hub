@@ -1,0 +1,9 @@
+Write a Python program to convert RGB image into CMY image
+
+OUTPUT
+
+Image Before Convertion:
+<img src='Image1.jpg'>
+
+Image After Convert to CMY:
+<img src='CMYImage.jpg'>
