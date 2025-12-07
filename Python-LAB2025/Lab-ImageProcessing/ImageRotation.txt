@@ -5,7 +5,7 @@ OUTPUT
 Format of the Image: JPEG
 
 Orginal Image:
-<img src='Image1.jpg'>
+<img src='ImageG1Deg.jpg'>
 
 Image after rotate 45deg:
 <img src='Image145Deg.jpg'>
@@ -13,10 +13,10 @@ Image after rotate 45deg:
 Image after rotate 90deg:
 <img src='Image190Deg.jpg'>
 
-The Array number of Image: [[[ 25  98 190]
-  [ 27 100 192]
-  [ 28 101 193]
-  ...
-  [ 22  60 141]
-  [ 22  60 141]
-  [ 22  61 140]]
+The Array number of Image: [[87 89 90 ... 58 58 58]
+ [87 89 90 ... 54 53 53]
+ [87 89 90 ... 47 46 45]
+ ...
+ [62 62 62 ... 19 14 12]
+ [62 62 62 ... 30 18 11]
+ [62 62 62 ... 45 25 14]]

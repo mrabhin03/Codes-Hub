@@ -1,7 +1,7 @@
 from PIL import Image
 from numpy import asarray
 
-Im=Image.open("Image1.jpg")
+Im=Image.open("Image1.jpg").convert("L")
 print("Format of the Image:",Im.format)
 print("Orginal Image:")
 Im.show()
