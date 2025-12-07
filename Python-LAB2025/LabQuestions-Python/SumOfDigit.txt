@@ -1,0 +1,9 @@
+Write a Python program to find the sum of digits of a given number.
+
+OUTPUT:
+
+Enter the number: 567
+The sum of digits of 567 is: 18
+
+Enter the number: 409
+The sum of digits of 409 is: 13
