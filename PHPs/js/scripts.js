@@ -19,13 +19,12 @@ function GetData(Dir,Search) {
   };
   xhr.send();
 }
-GetData(MainOption,'')
+
 document.getElementById('SearchDataInput').addEventListener('input', function() {
     GetData(MainOption,this.value)
 });
 
-
-function selectOption(object,Path){
+function ActiveSelector(object){
     NavLinks=document.querySelectorAll(".nav-link");
     NavLinks.forEach(NavLink => {
         NavLink.classList.remove('active');
@@ -35,6 +34,9 @@ function selectOption(object,Path){
     }else{
         object.classList.add('active');
     }
+}
+function selectOption(object,Path){
+    ActiveSelector(object)
     MainOption=Path;
     document.getElementById('SearchDataInput').value='';
     document.getElementById('navbarSupportedContent').classList.remove("show")

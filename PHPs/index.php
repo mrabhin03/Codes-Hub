@@ -16,19 +16,21 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" onclick='selectOption(this,"")'>All</a></li>
+                        <li class="nav-item"><a class="nav-link active All" aria-current="page" onclick='selectOption(this,"")'>All</a></li>
                         <?php
+                            $AvlFolder=[];
                             $folderPath = '../';
                             if (is_dir($folderPath)) {
                                 $items = scandir($folderPath);
                                 foreach ($items as $item) {
                                     $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
                                     if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
+                                        $AvlFolder[]=$item;
                                         ?>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $item;?></a>
+                                        <a class="nav-link dropdown-toggle <?=$item;?>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$item;?></a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?php echo $item;?>')">All</a></li>
+                                            <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?=$item;?>')">All</a></li>
                                             <?php
                                                 $SubfolderPath = "../$item";
                                                 if (is_dir($SubfolderPath)) {
@@ -37,7 +39,7 @@
                                                         $itemPath = $SubfolderPath . DIRECTORY_SEPARATOR . $Subitem;
                                                         if ($Subitem !== '.' && $Subitem !== '..' && is_dir($itemPath) && $Subitem[0] !== '.' && $Subitem!='PHPs') {
                                                             ?>
-                                                            <li><a class="dropdown-item" onclick='selectOption(this.parentNode.parentNode.parentNode,"<?php echo $item;?>/<?php echo $Subitem;?>")'><?php echo $Subitem;?></a></li>
+                                                            <li><a class="dropdown-item" onclick='selectOption(this.parentNode.parentNode.parentNode,"<?=$item;?>/<?=$Subitem;?>")'><?=$Subitem;?></a></li>
                                                             <?php
                                                         }
                                                     }
@@ -60,6 +62,7 @@
         </nav>
 
         <header class="bg-dark py-5">
+           
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Code Hub</h1>
@@ -69,6 +72,7 @@
                 
             </div>
         </header>
+        
 
         <section class="codeData" style='flex-grow:1;' >
             <div id='Loader-Spin'>
@@ -87,5 +91,15 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js?v=<?php echo time()?>"></script>
+        <?php
+        $opFold='';
+        if(isset($_GET["OpenFolder"]) && in_array($_GET["OpenFolder"],$AvlFolder)){
+            $opFold=$_GET["OpenFolder"];
+            echo"<script>ActiveSelector(document.querySelector('.$opFold').parentNode)</script>";
+        }
+        ?>
+        <script>
+            GetData('<?=$opFold?>','')
+        </script>
     </body>
 </html>
