@@ -8,10 +8,10 @@ Orginal Image:
 <img src='ImageG1Deg.jpg'>
 
 Image after rotate 45deg:
-<img src='Image145Deg.jpg'>
+<img src='ImageG145Deg.jpg'>
 
 Image after rotate 90deg:
-<img src='Image190Deg.jpg'>
+<img src='ImageG190Deg.jpg'>
 
 The Array number of Image: 
 [[87 89 90 ... 58 58 58]
