@@ -1,0 +1,9 @@
+Write a Python program to reverse a given string.
+
+OUTPUT:
+
+Enter the string: hello
+Reverse of the string hello is olleh
+
+Enter the string: python
+Reverse of the string python is nohtyp

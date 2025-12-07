@@ -1,4 +1,13 @@
+
+<div style="padding: 10px 20px;
+    background: #0043ff12;
+    margin-bottom: 10px;
+    border-radius: 10px;">
+    <h1 style="color: white;
+    font-size: 18px !important;margin:0
+    "><?=(!isset($_GET['Dir']) || $_GET['Dir']=='')?"All":$_GET['Dir']?></h1></div>
 <div class="code-main">
+    
 <?php
 $Nots=["index.html","CodeView.php"];
 $ExtensionNot=["class","txt","docx","pdf"];
