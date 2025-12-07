@@ -1,5 +1,5 @@
 var MainOption='';
-
+var SelectOPtions='All'
 function GetData(Dir,Search) {
     DetailsContainer = document.getElementById("JavaCodes");
     Spinner = document.getElementById("Loader-Spin");
@@ -19,21 +19,45 @@ function GetData(Dir,Search) {
   };
   xhr.send();
 }
+function shareLink() {
+  const link = `https://mrabhin03.github.io/Codes-Hub/${(SelectOPtions=="All")?"":"?OpenFolder="+SelectOPtions}`;
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: link
+    }).catch(() => {});
+    return;
+  }
+
+  const temp = document.createElement("input");
+  temp.value = link;
+  document.body.appendChild(temp);
+  temp.select();
+  document.execCommand("copy");
+  temp.remove();
+
+  alert("Link copied!");
+}
+
 
 document.getElementById('SearchDataInput').addEventListener('input', function() {
     GetData(MainOption,this.value)
 });
 
 function ActiveSelector(object){
+    
     NavLinks=document.querySelectorAll(".nav-link");
     NavLinks.forEach(NavLink => {
         NavLink.classList.remove('active');
     });
     if(!object.classList.contains('nav-link')){
         object.querySelector(".nav-link").classList.add('active');
+        SelectOPtions=(object.querySelector(".nav-link").getAttribute("data-label"));
     }else{
         object.classList.add('active');
+        SelectOPtions=(object.getAttribute("data-label"));
     }
+    
 }
 function selectOption(object,Path){
     ActiveSelector(object)

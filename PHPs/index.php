@@ -10,13 +10,16 @@
         <link href="css/styles.css?v=<?php echo time()?>" rel="stylesheet" />
     </head>
     <body>
+        <button class="Share" onclick="shareLink()">
+            <ion-icon name="share-social-outline"></ion-icon>
+        </button>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!"> Code Hub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active All" aria-current="page" onclick='selectOption(this,"")'>All</a></li>
+                        <li class="nav-item"><a class="nav-link active All" aria-current="page" onclick='selectOption(this,"")' data-label="All">All</a></li>
                         <?php
                             $AvlFolder=[];
                             $folderPath = '../';
@@ -28,7 +31,7 @@
                                         $AvlFolder[]=$item;
                                         ?>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle <?=$item;?>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=$item;?></a>
+                                        <a class="nav-link dropdown-toggle <?=$item;?>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-label="<?=$item?>"><?=$item;?></a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?=$item;?>')">All</a></li>
                                             <?php
@@ -102,5 +105,7 @@
         <script>
             GetData('<?=$opFold?>','')
         </script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
