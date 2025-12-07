@@ -1,0 +1,9 @@
+Write a Python program to check whether a given number is even or odd.
+
+OUTPUT:
+
+Enter the number to check: 10
+The number 10 is an even
+
+Enter the number to check: 7
+The number 7 is an odd

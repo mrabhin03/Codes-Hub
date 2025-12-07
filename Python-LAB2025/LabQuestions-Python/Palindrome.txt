@@ -1,0 +1,9 @@
+Write a Python program to check whether a given value is a palindrome or not.
+
+OUTPUT:
+
+Enter your value to check palindrome: 12321
+The value 12321 is a palindrome
+
+Enter your value to check palindrome: 123
+The value 123 is not a palindrome
