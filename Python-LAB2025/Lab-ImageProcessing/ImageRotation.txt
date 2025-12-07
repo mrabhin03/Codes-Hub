@@ -13,7 +13,8 @@ Image after rotate 45deg:
 Image after rotate 90deg:
 <img src='Image190Deg.jpg'>
 
-The Array number of Image: [[87 89 90 ... 58 58 58]
+The Array number of Image: 
+[[87 89 90 ... 58 58 58]
  [87 89 90 ... 54 53 53]
  [87 89 90 ... 47 46 45]
  ...
