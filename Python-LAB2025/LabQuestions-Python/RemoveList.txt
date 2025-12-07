@@ -1,0 +1,13 @@
+Write a program to remove all occurrences of a specific element from a list.
+
+OUTPUT
+
+Enter the length of list: 5
+Enter the value1: 10
+Enter the value2: 20
+Enter the value3: 30
+Enter the value4: 40
+Enter the value5: 50
+Elements in the list:  10, 20, 30, 40, 50
+Enter the element to remove: 20
+Elements in the list after remove:  10, 30, 40, 50

@@ -1,0 +1,12 @@
+Write a Python function that calculates the power of a number using recursion.
+(Hint: enter base and exponent, example: base = 3, exponent = 5 → result = 243)
+
+OUTPUT
+
+Enter the base number: 3
+Enter the exponent number: 5
+3^5 is: 243
+
+Enter the base number: 5
+Enter the exponent number: 0
+5^0 is: 1
