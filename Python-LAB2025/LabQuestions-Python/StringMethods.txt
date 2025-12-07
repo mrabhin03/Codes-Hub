@@ -1,0 +1,31 @@
+Write a Python program to perform various string operations on two input strings, including:
+
+1. Concatenation  
+2. Finding lengths  
+3. Extracting first 3 and last 4 characters  
+4. Converting the first string to uppercase and lowercase  
+5. Reversing the first string  
+6. Searching for a substring in the first string  
+7. Replacing 'a' with 'e' in the first string  
+8. Checking if the first string is alphabetic  
+9. Checking if the second string is numeric  
+
+OUTPUT:
+
+Enter first string: hello
+Enter second string: 123
+
+--- String Operations ---
+Concatenation : hello 123
+Length of first string : 5
+Length of second string : 3
+First 3 characters of first string : hel
+Last 4 characters of first string : ello
+First string in uppercase : HELLO
+First string in lowercase : hello
+First string reversed : olleh
+Enter a substring to search: lo
+lo found in first string
+Replace 'a' with 'e' : hello
+Is first string alphabetic? : True
+Is second string numeric? : True
