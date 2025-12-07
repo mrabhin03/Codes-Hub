@@ -68,6 +68,7 @@
                     <h1 class="display-4 fw-bolder">Code Hub</h1>
                     <p class="lead fw-normal text-white-50 mb-0">A Code Repository</p>
                     <input type="text" id='SearchDataInput' class="SearchData" placeholder='Search File'>
+                    <p style='font-size:15px;color:#ababab'>Tip: Open menu for sorted list</p>
                 </div>
                 
             </div>
@@ -87,7 +88,7 @@
             </div>
         </section>
         <footer class="py-5 bg-dark" style='margin-top:20px'>
-            <div class="container"><p class="m-0 text-center text-white">This Website is a Prototype <br> <b>'Code Reviewer'</b> <a target='_blank' href="https://github.com/mrabhin03">By Abhin M</a></p></div>
+            <div class="container"><p class="m-0 text-center text-white">This is a Prototype Website for<br> <b>'Quick code share'</b> <a target='_blank' href="https://github.com/mrabhin03">By Abhin M</a></p></div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js?v=<?php echo time()?>"></script>
