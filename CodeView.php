@@ -29,6 +29,35 @@
     echo "<script>const path=`$folder`;</script>"
   ?>
     <style>
+      .imageShow{
+        display: none;
+      }
+      .imageShow.Show{
+        width: 100%;
+        height: 100vh;
+        
+        position: fixed;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        display: grid;
+        place-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .imageShow.Show img{
+        width: 100%;
+        border-radius: 10px;
+        max-height: 500px;
+        transform: scale(0);
+        animation: upscale .5s ease-in-out forwards;
+      }
+      @keyframes upscale {
+        0%{
+          transform: scale(0);
+        }100%{
+          transform: scale(1);
+        }
+      }
         body {
           user-select: none;
             font-family: Arial, sans-serif;
@@ -136,6 +165,9 @@
     </style>
 </head>
 <body id='MainBody'>
+  <div class="imageShow" onclick="imageShow(null,0)">
+    <img src="" alt="" id="OutPutImage">
+  </div>
     <h1><?php echo $fileName;?></h1>
     <?=(isset($Question))?"<p class='QnsP' id='QnsP'>Q: ".nl2br($Question)."</p>":""?>
     <form  method="post">
@@ -180,10 +212,26 @@
           obj=document.getElementById("QnsP")
           obj.querySelectorAll("img").forEach(element => {
             element.src=`${path}/${element.getAttribute("src")}`;
+            element.addEventListener('click', () => {
+              imageShow(element,1);
+            });
+
           });
         }
         printData()
 
+
+        function imageShow(obj,mode){
+          const Shows=document.querySelector(".imageShow")
+          const Out=document.getElementById("OutPutImage");
+          if (mode==1){
+            Out.src=obj.src
+            Shows.classList.add("Show")
+          }else{
+            Shows.classList.remove("Show");
+            Out.src=''
+          }
+        }
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
