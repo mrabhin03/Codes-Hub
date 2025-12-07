@@ -1,0 +1,3 @@
+Write a Python program to input gray scale image, convert image to array of numbers
+and perform rotations on the image
+
