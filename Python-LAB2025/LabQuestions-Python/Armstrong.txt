@@ -1,0 +1,10 @@
+Write a python program to check whether a number is an Armstrong or not 
+
+
+OUTPUT:
+
+Enter the number to check: 1634
+The number 1634 is an Armstrong
+
+Enter the number to check: 123
+The number 123 is not an Armstrong
