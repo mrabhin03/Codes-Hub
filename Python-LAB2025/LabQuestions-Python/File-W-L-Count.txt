@@ -1,0 +1,12 @@
+Write a program to compute the number of characters, words and lines in a file without using built-in functions.
+
+OUTPUT:
+
+The data in the file: 
+Key Characteristics of Python:
+Easy to Learn and Use: Python's syntax is designed to be clear and intuitive, making it accessible for beginners.
+Interpreted Language: Python code is executed line by line by an interpreter, eliminating the need for a separate compilation step.
+
+Numbe of lines: 3
+Numbe of words: 43
+Numbe of chars: 237

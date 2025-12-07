@@ -1,0 +1,3 @@
+Key Characteristics of Python:
+Easy to Learn and Use: Python's syntax is designed to be clear and intuitive, making it accessible for beginners.
+Interpreted Language: Python code is executed line by line by an interpreter, eliminating the need for a separate compilation step.

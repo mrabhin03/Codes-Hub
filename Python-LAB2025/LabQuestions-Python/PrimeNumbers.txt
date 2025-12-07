@@ -1,0 +1,8 @@
+Write a Python program to find all prime numbers between two given numbers.
+
+OUTPUT:
+
+Enter the lower limit: 2
+Enter the upper limit: 15
+There are 6 between 2 and 15
+Prime numbers are:  2, 3, 5, 7, 11, 13

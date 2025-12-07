@@ -1,0 +1,13 @@
+Write a program to find the second largest number in a given list, without using sorting methods or sorting the list.
+(Hint: elements are – 10, 20, 15, 30, 20, 40 → answer = 30)
+
+OUTPUT:
+
+Enter the length of the list: 5
+Value 1: 22
+Value 2: 76
+Value 3: 66
+Value 4: 90
+Value 5: 34
+The list are: [22, 76, 66, 90, 34]
+The Second largest number is: 76
