@@ -1,0 +1,9 @@
+Write a Python program to apply negative identity transformation in an image
+
+OUTPUT
+
+Orginal image:
+<img src='ImageG1Deg.jpg'>
+
+Negative image:
+<img src='GrayNegative.jpg'>
