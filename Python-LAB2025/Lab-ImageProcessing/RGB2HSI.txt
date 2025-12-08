@@ -1,0 +1,9 @@
+Write a Python program to convert an RGB image into an HSI image.
+
+OUTPUT:
+
+Image before covertion: 
+<img src='Image1.jpg'>
+
+Image after coverting to HSI: 
+<img src='Image1HSI.jpg'>
