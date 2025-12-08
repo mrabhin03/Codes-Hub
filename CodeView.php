@@ -205,17 +205,7 @@
           const inputBox = document.getElementById("inputBox").textContent =`${code[0]}`;
         }
         getCodes();
-        const parent = document.getElementById('MainBody');
-        const child = document.querySelectorAll('.language-javascript')[0];
-
-        // parent.addEventListener(
-        //   'wheel',
-        //   (event) => {
-        //     child.scrollTop += event.deltaY; 
-        //     event.preventDefault(); 
-        //   },
-        //   { passive: false }
-        // );
+       
         function printData(){
           obj=document.getElementById("QnsP")
           obj.querySelectorAll("img").forEach(element => {
