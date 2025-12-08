@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   <?php
+  $Language=array(
+    'py'=>"Python",
+    'java'=>"java",
+    'js'=>"javascript",
+    'html'=>"markup",
+    'css'=>"markup",
+  );
     if(!isset($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ'])){
       die('No Data Found');
     }
     $decryptedData = base64_decode($_GET['VGhpcyBpcyBzZW5zaXRpdmUgZGF0YQ']);
     $filePath=$decryptedData;
     $fileContent = file_get_contents($filePath);
+    $ext = pathinfo($filePath, PATHINFO_EXTENSION);
     $filePathTxt = preg_replace('/\.[^.]+$/', '', $filePath) . ".txt";
-
+    
     if (file_exists($filePathTxt)) {
         $Question = file_get_contents($filePathTxt);
     }
@@ -92,7 +100,7 @@
             align-items: center;
             gap: 10px;
         }
-        .language-javascript{
+        .Code{
             user-select: none;
             border-radius:20px !important;
             color:#ddd;
@@ -174,7 +182,7 @@
         <div id="header-details">
           <button type="button" onclick="copyText()"><ion-icon id="copies" name="copy-outline"></ion-icon> <b id="Copied">Copy</b> </button>
         </div>
-        <pre ondblclick="copyText()"><code class="language-javascript" id="inputBox" ></code></pre>        
+        <pre ondblclick="copyText()" class='Code'><code class="language-<?=$Language[$ext]?> Code" id="inputBox" ></code></pre>        
     </form>
     <script>
         const copies = document.getElementById("copies");
