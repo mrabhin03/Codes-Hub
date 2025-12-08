@@ -1,0 +1,9 @@
+Write a Python program to find histogram value and display the histogram of a Gray image.
+
+OUTPUT
+
+The Orginal Image:
+<img src='ImageG1Deg.jpg'>
+
+Histogram of the Image:
+<img src='GrayHisto.png'>
