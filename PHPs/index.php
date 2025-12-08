@@ -22,6 +22,7 @@
                         <li class="nav-item"><a class="nav-link active All" aria-current="page" onclick='selectOption(this,"")' data-label="All">All</a></li>
                         <?php
                             $AvlFolder=[];
+                            $AvlSubFolder=[];
                             $folderPath = '../';
                             if (is_dir($folderPath)) {
                                 $items = scandir($folderPath);
@@ -41,6 +42,7 @@
                                                     foreach ($newitems as $Subitem) {
                                                         $itemPath = $SubfolderPath . DIRECTORY_SEPARATOR . $Subitem;
                                                         if ($Subitem !== '.' && $Subitem !== '..' && is_dir($itemPath) && $Subitem[0] !== '.' && $Subitem!='PHPs') {
+                                                            $AvlSubFolder[$item][]=$Subitem;
                                                             ?>
                                                             <li><a class="dropdown-item" onclick='selectOption(this.parentNode.parentNode.parentNode,"<?=$item;?>/<?=$Subitem;?>")'><?=$Subitem;?></a></li>
                                                             <?php
@@ -97,9 +99,17 @@
         <script src="js/scripts.js?v=<?php echo time()?>"></script>
         <?php
         $opFold='';
-        if(isset($_GET["OpenFolder"]) && in_array($_GET["OpenFolder"],$AvlFolder)){
-            $opFold=$_GET["OpenFolder"];
-            echo"<script>ActiveSelector(document.querySelector('.$opFold').parentNode)</script>";
+        if(isset($_GET["OpenFolder"])){
+            $Folders=explode("/",$_GET["OpenFolder"]);
+            if (in_array($Folders[0],$AvlFolder)){
+                $opFold=$Folders[0];
+                echo"<script>ActiveSelector(document.querySelector('.$opFold').parentNode)</script>";
+                if (count($Folders)>1 && in_array($Folders[1],$AvlSubFolder[$Folders[0]])){
+                    $opFold=$_GET["OpenFolder"];
+                }
+            }
+            // && in_array($_GET["OpenFolder"],$AvlFolder)
+            
         }
         ?>
         <script>

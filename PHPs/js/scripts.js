@@ -20,7 +20,8 @@ function GetData(Dir,Search) {
   xhr.send();
 }
 function shareLink() {
-  const link = `https://mrabhin03.github.io/Codes-Hub/${(SelectOPtions=="All")?"":"?OpenFolder="+SelectOPtions}`;
+  const link = `https://mrabhin03.github.io/Codes-Hub/${(MainOption=="")?"":"?OpenFolder="+MainOption}`;
+  console.log(link)
   if (navigator.share) {
     navigator.share({
       title: document.title,
