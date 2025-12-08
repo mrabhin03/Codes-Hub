@@ -99,6 +99,7 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            margin-bottom:30px;
         }
         .Code{
             user-select: none;
