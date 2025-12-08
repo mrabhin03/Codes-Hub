@@ -1,0 +1,12 @@
+Write a Python program to apply power low transformation on an image.
+
+OUTPUT:
+
+The orginal image before transformation:
+<img src='ImageG1Deg.jpg'>
+
+The image with gamma 5 transformation:
+<img src='PowerGamma5.jpg'>
+
+The image with gamma 50 transformation:
+<img src='PowerGamma50.jpg'>

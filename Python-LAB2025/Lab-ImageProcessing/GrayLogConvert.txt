@@ -1,0 +1,12 @@
+Write a Python program to apply log transformation in an image.
+
+OUTPUT
+
+The Orginal Image: 
+<img src='ImageG1Deg.jpg'>
+
+Image +50 Log tranform: 
+<img src='Log50Image.jpg'>
+
+Image -200 Log tranform: 
+<img src='Log-200Image.jpg'>
