@@ -1,0 +1,12 @@
+Write a Python program to implement 2-D DFT.
+
+OUTPUT
+
+The Spartial image: 
+<img src='ImageG1Deg.jpg'>
+
+The Fourier image: 
+<img src='FourierImage.png'>
+
+Image convert from Fourier:
+<img src='BackToImage.png'>
