@@ -1,0 +1,12 @@
+Write a Python program to read an image, corrupt the image using any noise models and apply mean filters to remove the noise.
+
+OUTPUT
+
+The Orginal Image before noise:
+<img src='Image1.jpg'>
+
+Image after adding noise: 
+<img src='NoiseImage.jpg'>
+
+Noise Image after using mean filter:
+<img src='NoiseFixImage.jpg'>
