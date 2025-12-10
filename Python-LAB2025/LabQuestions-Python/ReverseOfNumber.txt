@@ -1,0 +1,9 @@
+Write a Python program to reverse a given number.
+
+OUTPUT:
+
+Enter your number: 5274
+The reverse of number 5274 is: 4725
+
+Enter your number: 321
+The reverse of number 321 is: 123
