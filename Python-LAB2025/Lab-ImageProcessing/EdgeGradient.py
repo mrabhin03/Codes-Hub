@@ -5,8 +5,7 @@ im=cv2.imread("Image10.jpg")
 print("The orginal image:")
 
 cv2.imshow("OG",im)
-im=cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
-#(guys, above code is not importent you can convert to gray when read)
+#im=cv2.cvtColor(im,cv2.COLOR_BGR2GRAY) #(guys, above code is not importent you can convert to gray when read)
 
 sobelx=cv2.Sobel(im,cv2.CV_64F,0,1,ksize=3)
 sobely=cv2.Sobel(im,cv2.CV_64F,1,0,ksize=3)

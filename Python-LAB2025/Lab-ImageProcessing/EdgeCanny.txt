@@ -1,0 +1,9 @@
+Write a Python program for edge detection using Canny edge detection.
+
+OUTPUT:
+
+The Orginal Image:
+<img src='Image10.jpg'>
+
+Edges after using Canny:
+<img src='EdgeCanny.jpg'>
