@@ -1,0 +1,15 @@
+Write a Python program for edge detection using gradient operators.
+
+OUTPUT
+
+The orginal image:
+<img src='Image10.jpg'>
+
+SobelX image:
+<img src='SobelX.jpg'>
+
+SobelY image:
+<img src='SobelY.jpg'>
+
+Edges in the image:
+<img src='Edges.jpg'>
