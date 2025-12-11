@@ -532,7 +532,19 @@ progress {
   font-size: calc(1.475rem + 2.7vw);
   font-weight: 300;
   line-height: 1.2;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 15px;
 }
+.Creator{
+  font-size: 12px;
+  text-align: right;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  font-weight: 500;
+} 
 @media (min-width: 1200px) {
   .display-4 {
     font-size: 3.5rem;
