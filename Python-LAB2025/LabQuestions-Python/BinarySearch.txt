@@ -1,0 +1,21 @@
+Python program to implement binary search using function.
+
+OUTPUT
+
+Enter the list size: 4
+Enter the value1: 1
+Enter the value2: 2
+Enter the value3: 3
+Enter the value4: 4
+Enter the number to search: 2
+The element found at the index: 1
+
+Enter the list size: 6
+Enter the value1: 1
+Enter the value2: 6
+Enter the value3: 2
+Enter the value4: 5
+Enter the value5: 3
+Enter the value6: 4
+Enter the number to search: 8
+The element not found
