@@ -1,0 +1,24 @@
+Write a Python function to find the average of all the three digit numbers in a list.
+
+OUTPUT
+
+Enter how many element: 5
+Value1: 324
+Value2: 66
+Value3: 3463
+Value4: 244
+Value5: 87
+The elements in the list: 
+324, 66, 3463, 244, 87, 
+Three digit numbers are: 324, 244, 
+The Average them are: 284.0
+
+
+Enter how many element: 3
+Value1: 1234
+Value2: 5
+Value3: 45
+The elements in the list: 
+1234, 5, 45, 
+No 3 digit number found
+
