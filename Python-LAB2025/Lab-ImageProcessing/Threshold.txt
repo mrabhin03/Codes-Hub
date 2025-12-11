@@ -1,0 +1,9 @@
+Write a Python program to segment the image using Thresholding.
+
+OUTPUT:
+
+The orginal image:
+<img src='Image10.jpg'>
+
+The Threshold image:
+<img src='Threshold.jpg'>
