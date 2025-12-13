@@ -1,4 +1,5 @@
-Write a Python program to find the sum of digits of a given number.
+Write a Python function to find the sum of digits of a given number until it reduces to a single digit (using loops).
+(Hint: 992 → 9+9+3 → 21 → 2+1 → 3)
 
 OUTPUT:
 
