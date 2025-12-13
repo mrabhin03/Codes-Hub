@@ -8,5 +8,6 @@ while sod==0 or sod>9:
         sod+=int(num)
     number=str(sod)
     
+    
 
 print("The sum of redused digits of",numy,"is:",sod)
