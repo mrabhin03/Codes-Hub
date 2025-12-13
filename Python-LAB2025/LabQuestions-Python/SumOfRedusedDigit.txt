@@ -1,0 +1,13 @@
+Write a Python program to find the sum of digits of a given number.
+
+OUTPUT:
+
+Enter the numer: 993
+reduse: 993
+reduse: 21
+The sum of redused digits of 993 is: 3
+
+Enter the numer: 9999
+reduse: 9999
+reduse: 36
+The sum of redused digits of 9999 is: 9

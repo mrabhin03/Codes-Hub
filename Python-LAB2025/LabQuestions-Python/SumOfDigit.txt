@@ -1,13 +1,12 @@
-Write a Python program to find the sum of digits of a given number.
+numy=number=input("Enter the numer: ")
 
-OUTPUT:
+sod=0
+while sod==0 or sod>9:
+    print("reduse:",number)
+    sod=0
+    for num in number:
+        sod+=int(num)
+    number=str(sod)
+    
 
-Enter the numer: 993
-reduse: 993
-reduse: 21
-The sum of redused digits of 993 is: 3
-
-Enter the numer: 9999
-reduse: 9999
-reduse: 36
-The sum of redused digits of 9999 is: 9
+print("The sum of redused digits of",numy,"is:",sod)
