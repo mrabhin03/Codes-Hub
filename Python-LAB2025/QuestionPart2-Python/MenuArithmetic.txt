@@ -1,0 +1,24 @@
+Write a menu driven program to perform addition, subtraction, multiplication and division.
+
+OUTPUT:
+
+Enter the first digit: 10
+Enter the second digit: 5
+
+Press 0 to exit
+Press 1 to add
+Press 2 to subtract
+Press 3 to multiply
+Press 4 to divide
+Enter your choice: 1
+10 + 5 = 15
+
+Enter 0 if you want to change the values: 1
+
+Press 0 to exit
+Press 1 to add
+Press 2 to subtract
+Press 3 to multiply
+Press 4 to divide
+Enter your choice: 4
+10 / 5 = 2.0

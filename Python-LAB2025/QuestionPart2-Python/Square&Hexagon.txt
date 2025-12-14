@@ -1,0 +1,5 @@
+Write a program to draw square and hexagon using turtle package.
+
+OUTPUT:
+
+<img src='Square&Hexagon.png'>
