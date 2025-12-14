@@ -1,0 +1,11 @@
+Write a Python program to create a list of n numbers and find the biggest and smallest elements in a list
+
+OUTPUT:
+
+Enter a string: HelloWorld
+Number of uppercase letters: 2
+Number of lowercase letters: 8
+
+Enter a string: PYthon
+Number of uppercase letters: 2
+Number of lowercase letters: 4

@@ -1,0 +1,9 @@
+Write a code segment that prints the names of all of the items in the current working directory. 
+
+OUTPUT:
+
+Files and folders in the current directory:
+data.txt
+main.py
+images
+docs

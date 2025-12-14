@@ -1,0 +1,9 @@
+Write a Python program to convert a list to a tuple
+
+OUTPUT:
+
+Enter list elements: 10 20 30 40
+('10', '20', '30', '40')
+
+Enter list elements: apple banana mango
+('apple', 'banana', 'mango')

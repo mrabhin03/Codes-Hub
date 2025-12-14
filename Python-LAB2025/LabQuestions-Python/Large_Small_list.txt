@@ -1,0 +1,11 @@
+Write a Python program to find the maximum and minimum elements in a list.
+
+OUTPUT:
+
+Enter list elements: 4 9 2 7 1
+Maximum element: 9
+Minimum element: 1
+
+Enter list elements: 15 3 28 6
+Maximum element: 28
+Minimum element: 3

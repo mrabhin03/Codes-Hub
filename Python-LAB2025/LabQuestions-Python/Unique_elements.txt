@@ -1,0 +1,9 @@
+Write a python function that takes a list and returns a new list with unique elements of the first list. Import the module and input a list to find the unique elements in the list. 
+
+OUTPUT:
+
+Enter list elements: 1 2 3 2 4 1
+List after removing duplicates: ['1', '2', '3', '4']
+
+Enter list elements: apple banana apple mango
+List after removing duplicates: ['apple', 'banana', 'mango']

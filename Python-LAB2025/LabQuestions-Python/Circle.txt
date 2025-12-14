@@ -1,0 +1,15 @@
+Write a program in python that calculate the following: 
+ a. Area of circle
+ b. Circumference of a circle 
+
+
+OUTPUT:
+
+Enter radius: 7
+Area of circle = 153.86
+Circumference of circle = 43.96
+
+Enter radius: 3.5
+Area of circle = 38.465
+Circumference of circle = 21.98
+

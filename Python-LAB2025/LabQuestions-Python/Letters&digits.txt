@@ -1,0 +1,11 @@
+Write a program that accepts a sentence and calculate the number of letters and digits.
+
+OUTPUT:
+
+Enter a string: abc123
+Number of letters: 3
+Number of digits: 3
+
+Enter a string: hello2025
+Number of letters: 5
+Number of digits: 4

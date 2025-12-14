@@ -1,0 +1,11 @@
+Write a Python program to count the number of times an item appears in the given list.
+
+OUTPUT:
+
+Enter list elements: 1 2 3 2 4 2
+Enter element to search: 2
+Found the element 2 '3' times
+
+Enter list elements: apple banana apple orange
+Enter element to search: apple
+Found the element apple '2' times

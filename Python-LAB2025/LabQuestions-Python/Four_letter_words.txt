@@ -1,0 +1,6 @@
+Write a code segment that opens a file for input and prints the number of four-letter words in the file
+
+OUTPUT:
+
+File read:
+Number of 4-letter words: 6

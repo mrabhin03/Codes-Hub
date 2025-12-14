@@ -1,0 +1,11 @@
+Program to search the position of a string in a given string
+
+OUTPUT:
+
+Enter the main string: programming
+Enter the substring to search: gram
+Position of substring: 3
+
+Enter the main string: hello world
+Enter the substring to search: test
+Position of substring: -1

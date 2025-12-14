@@ -1,0 +1,11 @@
+Write a code segment that prompts the user for a filename. If the file exists, the program should print its contents on the terminal. Otherwise, it should print an error message. 
+
+OUTPUT:
+
+Enter file name: data.txt
+File content:
+Hello World
+This is a sample file.
+
+Enter file name: test.txt
+File not found

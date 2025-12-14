@@ -1,0 +1,9 @@
+Write a program to read a string and count number vowels in it.
+
+OUTPUT:
+
+Enter a string: education
+Number of vowels in the string: 5
+
+Enter a string: python
+Number of vowels in the string: 1

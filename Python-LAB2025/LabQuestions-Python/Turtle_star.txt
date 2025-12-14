@@ -1,0 +1,5 @@
+Write a python program to draw color filled star in turtle 
+
+OUTPUT:
+
+<img src='Turtle_star.png'>
