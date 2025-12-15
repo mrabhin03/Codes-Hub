@@ -1,0 +1,30 @@
+Write a Python program to input gray scale image, convert image to array of numbers and perform rotations on the image
+
+OUTPUT
+
+Format of the Image: JPEG
+
+Orginal Image:
+<img src='ImageG1Deg.jpg'>
+
+Image after rotate 45deg:
+<img src='ImageG145Deg.jpg'>
+
+Image after rotate 90deg:
+<img src='ImageG190Deg.jpg'>
+
+The Array number of Image:
+      0     1     2     3     4     5     ...  1074  1075  1076  1077  1078  1079
+0      87    89    90    85    76    68  ...    58    58    58    58    58    58
+1      87    89    90    85    76    68  ...    55    55    54    54    53    53
+2      87    89    90    85    76    68  ...    52    50    49    47    46    45
+3      87    89    90    85    76    68  ...    48    46    44    42    41    40
+4      87    89    90    85    76    68  ...    46    45    43    42    41    40
+..    ...   ...   ...   ...   ...   ...  ...   ...   ...   ...   ...   ...   ...
+602    62    62    62    62    62    62  ...    20    15    12    13    17    21
+603    62    62    62    62    62    62  ...    37    23    15    12    14    17
+604    62    62    62    62    62    62  ...    61    41    27    19    14    12
+605    62    62    62    62    62    62  ...    79    64    46    30    18    11
+606    62    62    62    62    62    62  ...    87    80    65    45    25    14
+
+[607 rows x 1080 columns]
