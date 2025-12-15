@@ -1,3 +1,7 @@
+Write a Python program to input a color image, convert it to an array, and perform rotations.
+
+OUTPUT:
+
 Format of the Image: JPEG
 Orginal Image:
 <img src='Image10.jpg'>
