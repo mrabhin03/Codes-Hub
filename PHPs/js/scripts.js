@@ -2,6 +2,7 @@ var MainOption = '';
 var SelectOPtions = 'All';
 var reqId = 0;
 var searchTimer = null;
+var lastWidth = window.innerWidth;
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -37,9 +38,19 @@ function openDropdown(li) {
     const wasOpen = li.classList.contains('open');
     closeDropdowns();
     if (wasOpen) return;
+
+    const vw = document.documentElement.clientWidth;
+    const vh = window.innerHeight;
     const r = chip.getBoundingClientRect();
-    dd.style.top = (r.bottom + 8) + 'px';
-    dd.style.left = Math.max(12, Math.min(r.left, window.innerWidth - dd.offsetWidth - 12)) + 'px';
+    const top = r.bottom + 8;
+
+    // never taller than the space below the chip (long lists scroll inside the menu)
+    dd.style.maxHeight = Math.max(140, vh - top - 12) + 'px';
+    dd.style.top = top + 'px';
+    // keep fully inside the screen on narrow phones
+    const width = Math.min(dd.offsetWidth, vw - 24);
+    dd.style.left = Math.max(12, Math.min(r.left, vw - width - 12)) + 'px';
+
     li.classList.add('open');
     dd.classList.add('show');
     chip.setAttribute('aria-expanded', 'true');
@@ -100,10 +111,17 @@ function initHub(openFolder) {
         chip.addEventListener('click', e => { e.stopPropagation(); openDropdown(li); });
         chip.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDropdown(li); } });
     });
-    $('.chip[data-folder=""]').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.click(); });
+    $('.chip[data-folder=""]').addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.target.click(); }
+    });
     document.addEventListener('click', closeDropdowns);
-    $('#menu').addEventListener('scroll', closeDropdowns);
-    window.addEventListener('resize', closeDropdowns);
+    $('#menu').addEventListener('scroll', closeDropdowns, { passive: true });
+    // mobile browsers fire "resize" when the address bar hides/shows while scrolling,
+    // so only close when the WIDTH really changes (rotation, window resize)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth !== lastWidth) { lastWidth = window.innerWidth; closeDropdowns(); }
+    });
+    window.addEventListener('orientationchange', closeDropdowns);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDropdowns(); });
 
     // search: wait until typing pauses
@@ -112,7 +130,7 @@ function initHub(openFolder) {
         searchTimer = setTimeout(() => GetData(MainOption, this.value), 220);
     });
 
-    // card spotlight follows the cursor
+    // card spotlight follows the cursor (mouse only; touch has no hover)
     $('#JavaCodes').addEventListener('mousemove', e => {
         const card = e.target.closest('.card');
         if (!card) return;

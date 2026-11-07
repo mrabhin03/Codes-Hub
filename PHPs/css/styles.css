@@ -1,4 +1,4 @@
-/* Code Hub: full custom theme (no Bootstrap needed) */
+/* Code Hub: full custom theme, mobile-first responsive fixes */
 :root{
   --bg:#0f1117; --bg2:#151823; --surface:#1a1e2b; --surface2:#222737;
   --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.18);
@@ -6,11 +6,29 @@
   --font:'Sora',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --mono:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
+  --nav-h:64px;
+  --gutter:24px;
+  /* notch / home-bar safe areas (needs viewport-fit=cover in the meta tag) */
+  --sa-t:env(safe-area-inset-top,0px);
+  --sa-r:env(safe-area-inset-right,0px);
+  --sa-b:env(safe-area-inset-bottom,0px);
+  --sa-l:env(safe-area-inset-left,0px);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);
-  font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
+body{
+  margin:0;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+img,svg{max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
@@ -18,31 +36,46 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:#3a3f52;border-radius:10px;border:2px solid var(--bg)}
-.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px}
+.wrap{
+  width:100%;max-width:1240px;margin:0 auto;
+  padding-left:max(var(--gutter),var(--sa-l));
+  padding-right:max(var(--gutter),var(--sa-r));
+}
 
-/* ---------- Navbar ---------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.72);
-  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+/* ---------- Navbar ----------
+   backdrop-filter lives on a pseudo-element: putting it on .nav itself makes
+   .nav the containing block of the position:fixed dropdown and breaks its placement. */
+.nav{position:sticky;top:0;z-index:50;padding-top:var(--sa-t);
   border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(15,17,23,.78);
+  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4)}
 .nav.scrolled{box-shadow:0 12px 30px rgba(0,0,0,.45)}
-.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
-.brand{font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
-.menu{display:flex;align-items:center;gap:4px;margin:0;padding:0;list-style:none;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:var(--nav-h)}
+.brand{font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap;flex:none}
+.menu{display:flex;align-items:center;gap:4px;margin:0;padding:0 8px;list-style:none;flex:1;min-width:0;
+  overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  /* soft fade on both edges to hint that the menu scrolls */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12px,#000 calc(100% - 20px),transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 12px,#000 calc(100% - 20px),transparent 100%)}
 .menu::-webkit-scrollbar{display:none}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);
-  white-space:nowrap;cursor:pointer;transition:color .2s,background .2s,transform .15s}
-.chip:hover{color:var(--text);background:var(--surface)}
+.menu-item{flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);
+  white-space:nowrap;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;
+  transition:color .2s,background .2s,transform .15s}
 .chip:active{transform:scale(.96)}
 .chip.active{color:var(--text);background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
 .chip .caret{width:10px;height:10px;transition:transform .25s}
 .menu-item.open .caret{transform:rotate(180deg)}
-.dropdown{position:fixed;min-width:200px;padding:6px;border-radius:14px;background:var(--surface);border:1px solid var(--line2);
+.dropdown{position:fixed;min-width:200px;max-width:calc(100vw - 24px);max-height:70vh;overflow-y:auto;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:6px;border-radius:14px;background:var(--surface);border:1px solid var(--line2);
   box-shadow:0 20px 50px rgba(0,0,0,.55);opacity:0;transform:translateY(-6px) scale(.98);pointer-events:none;
   transition:opacity .18s,transform .18s var(--ease);z-index:80}
 .dropdown.show{opacity:1;transform:none;pointer-events:auto}
-.dropdown a{display:block;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--muted);cursor:pointer;
+.dropdown a{display:block;min-height:40px;padding:10px 12px;border-radius:9px;font-size:14px;color:var(--muted);cursor:pointer;
+  overflow-wrap:anywhere;touch-action:manipulation;
   transition:background .15s,color .15s,padding-left .2s var(--ease)}
-.dropdown a:hover{background:var(--surface2);color:var(--text);padding-left:16px}
+.dropdown a:active{background:var(--surface2);color:var(--text)}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;padding:72px 0 44px;text-align:center;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -51,14 +84,15 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
              radial-gradient(40% 50% at 75% 30%,rgba(255,180,84,.12),transparent 70%);filter:blur(10px);
   animation:drift 16s ease-in-out infinite alternate}
 @keyframes drift{to{transform:translate(40px,24px) scale(1.06)}}
-.hero-title{width:fit-content;margin:0 auto 10px;display:flex;flex-direction:column;animation:fade .7s var(--ease) both}
-.hero-title h1{margin:0;font-size:clamp(38px,7vw,64px);line-height:1.05;letter-spacing:-.035em;font-weight:700}
+.hero-title{width:fit-content;max-width:100%;margin:0 auto 10px;display:flex;flex-direction:column;animation:fade .7s var(--ease) both}
+.hero-title h1{margin:0;font-size:clamp(34px,9vw,64px);line-height:1.05;letter-spacing:-.035em;font-weight:700;overflow-wrap:anywhere}
 .Creator{align-self:flex-end;margin-top:2px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
 .lead{margin:0;color:var(--muted);font-size:17px;animation:fade .7s var(--ease) .1s both}
-.search{position:relative;display:block;margin:30px auto 14px;max-width:620px;animation:fade .7s var(--ease) .18s both}
+.search{position:relative;display:block;margin:30px auto 14px;width:100%;max-width:620px;animation:fade .7s var(--ease) .18s both}
 .search svg{position:absolute;left:18px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
 .SearchData{width:100%;height:56px;padding:0 20px 0 48px;border-radius:16px;border:1px solid var(--line2);
-  background:var(--surface);color:var(--text);font:inherit;font-size:16px;text-align:center;
+  background:var(--surface);color:var(--text);font:inherit;font-size:16px; /* 16px stops iOS zoom on focus */
+  text-align:center;-webkit-appearance:none;appearance:none;
   transition:border-color .2s,box-shadow .25s,background .2s,transform .25s var(--ease)}
 .SearchData::placeholder{color:#6c748c}
 .SearchData:focus{outline:0;border-color:var(--accent);background:var(--bg2);box-shadow:0 0 0 4px rgba(139,155,255,.16);transform:translateY(-2px)}
@@ -67,38 +101,49 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 
 /* ---------- Results ---------- */
 main{flex:1;padding-top:32px}
+.codeData{scroll-margin-top:calc(var(--nav-h) + var(--sa-t))}
 #JavaCodes{position:relative;min-height:240px;padding-bottom:56px;transition:opacity .25s}
 #JavaCodes.loading{opacity:.5;pointer-events:none}
 .dir{display:flex;margin:0 0 18px;border-radius:12px;overflow:hidden;background:var(--surface);border:1px solid var(--line);animation:fade .4s var(--ease) both}
-.dir::before{content:"";width:4px;background:var(--accent)}
-.dir h2{margin:0;padding:10px 18px;font-size:16px;font-weight:600;word-break:break-word}
-.code-main{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.dir::before{content:"";width:4px;flex:none;background:var(--accent)}
+.dir h2{margin:0;padding:10px 18px;font-size:16px;font-weight:600;overflow-wrap:anywhere}
+.code-main{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:18px}
 
-.card{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);
+.card{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;border-radius:var(--radius);
   background:linear-gradient(160deg,var(--surface),var(--bg2));border:1px solid var(--line);
   transition:transform .35s var(--ease),border-color .3s,box-shadow .35s;animation:rise .5s var(--ease) both;animation-delay:calc(var(--i,0)*40ms)}
 .card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
   background:radial-gradient(240px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.12),transparent 60%)}
 .card::after{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:var(--tag,var(--accent))}
-.card:hover{transform:translateY(-6px);border-color:var(--line2);box-shadow:0 22px 44px rgba(0,0,0,.5)}
-.card:hover::before{opacity:1}
+.card:active{border-color:var(--line2)}
 .card-body{position:relative;z-index:1;flex:1;padding:24px 22px 12px;text-align:center}
 .badge-new{display:inline-block;margin-bottom:8px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;color:#2a1a00;background:var(--new);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,180,84,.55)}50%{box-shadow:0 0 0 7px rgba(255,180,84,0)}}
-.card h3{margin:6px 0 12px;font-family:var(--mono);font-size:17px;font-weight:600;line-height:1.35;word-break:break-word}
-.meta{font-size:14px;color:var(--muted);line-height:1.8}
+.card h3{margin:6px 0 12px;font-family:var(--mono);font-size:17px;font-weight:600;line-height:1.35;overflow-wrap:anywhere}
+.meta{font-size:14px;color:var(--muted);line-height:1.8;overflow-wrap:anywhere}
 .meta b{color:var(--text);font-weight:500}
 .meta .type{color:var(--tag,var(--accent));font-weight:600}
 .card-footer{position:relative;z-index:1;padding:8px 22px 22px;text-align:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 24px;border-radius:12px;
-  background:#fff;color:#14161c;font-size:14px;font-weight:600;
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 24px;border-radius:12px;
+  background:#fff;color:#14161c;font-size:14px;font-weight:600;touch-action:manipulation;
   transition:transform .25s var(--ease),background .2s,box-shadow .25s}
-.btn:hover{background:#e6e9f5;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.4)}
 .btn:active{transform:scale(.96)}
 .btn svg{width:16px;height:16px;transition:transform .2s}
-.btn:hover svg{transform:translateX(3px)}
 @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
 .empty{grid-column:1/-1;text-align:center;padding:56px 16px;font-size:20px}
+
+/* hover effects only on devices that really hover (avoids "stuck" hover on touch) */
+@media (hover:hover) and (pointer:fine){
+  .chip:hover{color:var(--text);background:var(--surface)}
+  .dropdown a:hover{background:var(--surface2);color:var(--text);padding-left:16px}
+  .card:hover{transform:translateY(-6px);border-color:var(--line2);box-shadow:0 22px 44px rgba(0,0,0,.5)}
+  .card:hover::before{opacity:1}
+  .btn:hover{background:#e6e9f5;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.4)}
+  .btn:hover svg{transform:translateX(3px)}
+  .Share:hover{transform:scale(1.1) rotate(-8deg)}
+  .to-top:hover{transform:translateY(-3px)}
+  footer a:hover{border-color:var(--accent)}
+}
 
 /* loader */
 .skel{height:210px;border-radius:var(--radius);border:1px solid var(--line);
@@ -106,25 +151,66 @@ main{flex:1;padding-top:32px}
 @keyframes shimmer{to{background-position:-200% 0}}
 
 /* ---------- Footer / floating buttons / toast ---------- */
-footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-size:14px;line-height:1.8}
+footer{border-top:1px solid var(--line);padding:36px 0 calc(36px + var(--sa-b));text-align:center;color:var(--muted);font-size:14px;line-height:1.8}
 footer b{color:var(--text)}
 footer a{color:var(--text);border-bottom:1px solid var(--line2);transition:border-color .2s}
-footer a:hover{border-color:var(--accent)}
-.fab{position:fixed;right:16px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;z-index:90;
-  background:#fff;color:#14161c;box-shadow:0 10px 26px rgba(0,0,0,.5);transition:transform .25s var(--ease),opacity .3s}
+.fab{position:fixed;right:calc(16px + var(--sa-r));width:46px;height:46px;border-radius:14px;display:grid;place-items:center;z-index:90;
+  background:#fff;color:#14161c;box-shadow:0 10px 26px rgba(0,0,0,.5);touch-action:manipulation;
+  transition:transform .25s var(--ease),opacity .3s}
 .fab svg{width:20px;height:20px}
-.Share{bottom:16px}
-.Share:hover{transform:scale(1.1) rotate(-8deg)}
+.Share{bottom:calc(16px + var(--sa-b))}
 .Share:active{transform:scale(.92)}
-.to-top{bottom:72px;opacity:0;transform:translateY(12px);pointer-events:none}
+.to-top{bottom:calc(72px + var(--sa-b));opacity:0;transform:translateY(12px);pointer-events:none}
 .to-top.show{opacity:1;transform:none;pointer-events:auto}
-.to-top:hover{transform:translateY(-3px)}
-.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);padding:11px 18px;border-radius:12px;background:var(--text);
+.toast{position:fixed;left:50%;bottom:calc(28px + var(--sa-b));transform:translate(-50%,20px);
+  width:max-content;max-width:calc(100vw - 32px);text-align:center;
+  padding:11px 18px;border-radius:12px;background:var(--text);
   color:#0f1117;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s var(--ease);z-index:100}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+/* ---------- Breakpoints ---------- */
+/* large tablets / small laptops */
+@media (max-width:900px){
+  :root{--gutter:20px}
+  .hero{padding:56px 0 36px}
+  .code-main{gap:16px}
+}
+/* phones */
 @media (max-width:640px){
-  .wrap{padding:0 16px}
-  .hero{padding:48px 0 32px}
+  :root{--nav-h:56px;--gutter:16px}
+  .nav .wrap{gap:10px}
+  .brand{font-size:16px}
+  .chip{padding:8px 12px}
+  .hero{padding:40px 0 28px}
+  .lead{font-size:15px}
+  .search{margin:22px auto 12px}
+  .SearchData{height:52px;border-radius:14px}
+  .tip{font-size:13px}
+  main{padding-top:24px}
+  #JavaCodes{padding-bottom:96px} /* keep last card clear of the floating buttons */
+  .code-main{gap:14px}
+  .card-body{padding:20px 18px 10px}
+  .card h3{font-size:16px}
+  .card-footer{padding:6px 18px 18px}
+  .btn{width:100%}              /* full-width, easy thumb target */
+  .dir h2{font-size:15px;padding:9px 14px}
+  .fab{width:44px;height:44px;border-radius:12px}
+  .to-top{bottom:calc(68px + var(--sa-b))}
+}
+/* very small phones (e.g. 320px) */
+@media (max-width:360px){
+  :root{--gutter:12px}
+  .brand{font-size:15px}
+  .hero-title h1{font-size:32px}
+  .Creator{font-size:11.5px}
+}
+/* phones in landscape: short viewport */
+@media (max-height:480px) and (orientation:landscape){
+  :root{--nav-h:52px}
+  .hero{padding:24px 0 20px}
+  .search{margin:16px auto 10px}
+  .SearchData{height:46px}
+  .fab{width:40px;height:40px}
+  .to-top{bottom:calc(64px + var(--sa-b))}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
