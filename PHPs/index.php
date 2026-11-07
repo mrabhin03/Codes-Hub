@@ -1,121 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Code Hub By Abhin</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css?v=<?php echo time()?>" rel="stylesheet" />
-    </head>
-    <body>
-        <button class="Share" onclick="shareLink()">
-            <ion-icon name="share-social-outline"></ion-icon>
-        </button>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!"> Code Hub</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active All" aria-current="page" onclick='selectOption(this,"")' data-label="All">All</a></li>
-                        <?php
-                            $AvlFolder=[];
-                            $AvlSubFolder=[];
-                            $folderPath = '../';
-                            if (is_dir($folderPath)) {
-                                $items = scandir($folderPath);
-                                foreach ($items as $item) {
-                                    $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
-                                    if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item!='PHPs') {
-                                        $AvlFolder[]=$item;
-                                        ?>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle <?=$item;?>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-label="<?=$item?>"><?=$item;?></a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" onclick="selectOption(this.parentNode.parentNode.parentNode,'<?=$item;?>')">All</a></li>
-                                            <?php
-                                                $SubfolderPath = "../$item";
-                                                if (is_dir($SubfolderPath)) {
-                                                    $newitems = scandir($SubfolderPath);
-                                                    foreach ($newitems as $Subitem) {
-                                                        $itemPath = $SubfolderPath . DIRECTORY_SEPARATOR . $Subitem;
-                                                        if ($Subitem !== '.' && $Subitem !== '..' && is_dir($itemPath) && $Subitem[0] !== '.' && $Subitem!='PHPs') {
-                                                            $AvlSubFolder[$item][]=$Subitem;
-                                                            ?>
-                                                            <li><a class="dropdown-item" onclick='selectOption(this.parentNode.parentNode.parentNode,"<?=$item;?>/<?=$Subitem;?>")'><?=$Subitem;?></a></li>
-                                                            <?php
-                                                        }
-                                                    }
-                                                } else {
-                                                    echo "The specified folder does not exist.";
-                                                }
-                                            ?>
-                                        </ul>
-                                    </li>
-                                        <?php
-                                    }
-                                }
-                            } else {
-                                echo "The specified folder does not exist.";
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1117" />
+    <title>Code Hub By Abhin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="css/styles.css?v=<?php echo time() ?>" rel="stylesheet" />
+</head>
+<body>
+<button class="fab Share" onclick="shareLink()" aria-label="Share">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+</button>
+
+<nav class="nav" id="Nav">
+    <div class="wrap">
+        <a class="brand" href="./">Code Hub</a>
+        <ul class="menu" id="menu">
+            <li class="menu-item"><a class="chip active All" data-folder="" data-label="All" role="button" tabindex="0" onclick='selectOption(this,"")'>All</a></li>
+            <?php
+            $AvlFolder = [];
+            $AvlSubFolder = [];
+            $folderPath = '../';
+            if (is_dir($folderPath)) {
+                foreach (scandir($folderPath) as $item) {
+                    $itemPath = $folderPath . DIRECTORY_SEPARATOR . $item;
+                    if ($item !== '.' && $item !== '..' && is_dir($itemPath) && $item[0] !== '.' && $item != 'PHPs') {
+                        $AvlFolder[] = $item;
+                        $safe = htmlspecialchars($item, ENT_QUOTES);
+            ?>
+            <li class="menu-item">
+                <a class="chip" data-folder="<?= $safe ?>" data-label="<?= $safe ?>" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
+                    <?= $safe ?>
+                    <svg class="caret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg>
+                </a>
+                <div class="dropdown" role="menu">
+                    <a onclick='selectOption(this,"<?= $safe ?>")'>All</a>
+                    <?php
+                    $SubfolderPath = "../$item";
+                    if (is_dir($SubfolderPath)) {
+                        foreach (scandir($SubfolderPath) as $Subitem) {
+                            $subPath = $SubfolderPath . DIRECTORY_SEPARATOR . $Subitem;
+                            if ($Subitem !== '.' && $Subitem !== '..' && is_dir($subPath) && $Subitem[0] !== '.' && $Subitem != 'PHPs') {
+                                $AvlSubFolder[$item][] = $Subitem;
+                                $sub = htmlspecialchars($Subitem, ENT_QUOTES);
+                    ?>
+                    <a onclick='selectOption(this,"<?= $safe ?>/<?= $sub ?>")'><?= $sub ?></a>
+                    <?php
                             }
-                        ?>
-                    </ul>
+                        }
+                    } else {
+                        echo "The specified folder does not exist.";
+                    }
+                    ?>
                 </div>
-            </div>
-        </nav>
-
-        <header class="bg-dark py-5">
-           
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Code Hub <br><span class='Creator'>Created by Abhin M</span></h1>
-                    <p class="lead fw-normal text-white-50 mb-0">A Code Repository</p>
-                    <input type="text" id='SearchDataInput' class="SearchData" placeholder='Search File'>
-                    <p style='font-size:15px;color:#ababab'>Tip: Open menu for sorted list</p>
-                </div>
-                
-            </div>
-        </header>
-        
-
-        <section class="codeData" style='flex-grow:1;' >
-            <div id='Loader-Spin'>
-                <div class='spinner-box'>
-                    <!-- <div class='spin1'></div> -->
-                    <div class='spin2'></div>
-                    <div class='spin3'></div>
-                </div>
-            </div>
-            <div class="container px-4 px-lg-5 mt-5" style='position: relative;'  id='JavaCodes'>
-                
-            </div>
-        </section>
-        <footer class="py-5 bg-dark" style='margin-top:20px'>
-            <div class="container"><p class="m-0 text-center text-white">This is a Prototype Website for<br> <b>'Quick code share'</b> <a target='_blank' href="https://github.com/mrabhin03">By Abhin M</a></p></div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js?v=<?php echo time()?>"></script>
-        <?php
-        $opFold='';
-        if(isset($_GET["OpenFolder"])){
-            $Folders=explode("/",$_GET["OpenFolder"]);
-            if (in_array($Folders[0],$AvlFolder)){
-                $opFold=$Folders[0];
-                echo"<script>ActiveSelector(document.querySelector('.$opFold').parentNode)</script>";
-                if (count($Folders)>1 && in_array($Folders[1],$AvlSubFolder[$Folders[0]])){
-                    $opFold=$_GET["OpenFolder"];
+            </li>
+            <?php
+                    }
                 }
+            } else {
+                echo "The specified folder does not exist.";
             }
-            // && in_array($_GET["OpenFolder"],$AvlFolder)
-            
+            ?>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="wrap">
+        <div class="hero-title">
+            <h1>Code Hub</h1>
+            <span class="Creator">Created by Abhin M</span>
+        </div>
+        <p class="lead">A Code Repository</p>
+        <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="text" id="SearchDataInput" class="SearchData" placeholder="Search File" autocomplete="off">
+        </label>
+        <p class="tip">Tip: Open menu for sorted list</p>
+    </div>
+</header>
+
+<main class="codeData">
+    <div class="wrap" id="JavaCodes"></div>
+</main>
+
+<footer>
+    <div class="wrap">This is a Prototype Website for<br><b>'Quick code share'</b> <a target="_blank" rel="noopener" href="https://github.com/mrabhin03">By Abhin M</a></div>
+</footer>
+
+<button class="fab to-top" id="ToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+<div class="toast" id="Toast" role="status"></div>
+
+<script src="js/scripts.js?v=<?php echo time() ?>"></script>
+<?php
+$opFold = '';
+if (isset($_GET["OpenFolder"])) {
+    $Folders = explode("/", $_GET["OpenFolder"]);
+    if (in_array($Folders[0], $AvlFolder)) {
+        $opFold = $Folders[0];
+        if (count($Folders) > 1 && isset($AvlSubFolder[$Folders[0]]) && in_array($Folders[1], $AvlSubFolder[$Folders[0]])) {
+            $opFold = $_GET["OpenFolder"];
         }
-        ?>
-        <script>
-            GetData('<?=$opFold?>','')
-        </script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
+    }
+}
+?>
+<script>initHub(<?= json_encode($opFold) ?>);</script>
+</body>
 </html>

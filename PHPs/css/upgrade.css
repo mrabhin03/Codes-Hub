@@ -1,0 +1,154 @@
+/* Code Hub: advanced theme. Same dark look + white navbar, but smoother and richer.
+   Load AFTER styles.css. */
+
+:root{
+  --ch-line:rgba(255,255,255,.12);
+  --ch-ease:cubic-bezier(.2,.8,.2,1);
+}
+html{scroll-behavior:smooth}
+/* original body was height:100vh, which would break the sticky navbar */
+body{-webkit-font-smoothing:antialiased;height:auto;min-height:100vh}
+
+/* ---------- Navbar: sticky frosted white ---------- */
+.navbar.bg-light{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,249,250,.86)!important;
+  backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
+  box-shadow:0 1px 0 rgba(0,0,0,.08);
+  transition:box-shadow .3s,background .3s;
+}
+.navbar.ch-scrolled{box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.navbar-brand{font-weight:700;letter-spacing:-.01em}
+.navbar-nav .nav-link{
+  border-radius:999px;padding:6px 14px;margin:0 2px;
+  transition:background-color .25s,color .25s,transform .2s;
+}
+.navbar-nav .nav-link:hover{background:rgba(0,0,0,.07);color:#000}
+.navbar-nav .nav-link:active{transform:scale(.96)}
+.navbar-nav .nav-link.active{background:#212529;color:#fff}
+.navbar-nav .nav-link.active:hover{background:#2f343a;color:#fff}
+.navbar-toggler{border-radius:10px;transition:transform .2s}
+.navbar-toggler:active{transform:scale(.92)}
+
+/* dropdown */
+.dropdown-menu{
+  border:0;border-radius:14px;padding:6px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+.dropdown-menu.show{animation:chDrop .22s var(--ch-ease) both}
+.dropdown-item{border-radius:9px;padding:8px 14px;transition:background-color .15s,padding-left .2s var(--ch-ease)}
+.dropdown-item:hover{padding-left:20px}
+@keyframes chDrop{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
+
+/* ---------- Header ---------- */
+header.bg-dark{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#24272b 0%,#1b1d20 100%)!important;
+  border-bottom:1px solid var(--ch-line);
+}
+header.bg-dark::before,header.bg-dark::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none;
+}
+header.bg-dark::before{width:380px;height:380px;left:-100px;top:-160px;background:#5b6cff;animation:chFloat 14s ease-in-out infinite alternate}
+header.bg-dark::after{width:320px;height:320px;right:-80px;bottom:-160px;background:#ffffff;opacity:.12;animation:chFloat 18s ease-in-out infinite alternate-reverse}
+header .container{position:relative;z-index:1}
+@keyframes chFloat{to{transform:translate(60px,40px) scale(1.15)}}
+header .display-4{animation:chFade .7s var(--ch-ease) both;letter-spacing:-.02em}
+header .lead,header .SearchData,header p{animation:chFade .7s var(--ch-ease) .12s both}
+@keyframes chFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ---------- Search ---------- */
+.SearchData{
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23777' stroke-width='2' stroke-linecap='round' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);
+  transition:box-shadow .3s,transform .3s var(--ch-ease);
+}
+.SearchData::placeholder{color:#8a8f96}
+.SearchData:focus{box-shadow:0 0 0 4px rgba(255,255,255,.22),0 10px 30px rgba(0,0,0,.45);transform:translateY(-2px)}
+
+/* ---------- Result bar (existing title strip) ---------- */
+#JavaCodes > div:first-child:not(.code-main){
+  animation:chFade .5s var(--ch-ease) both;
+  border:1px solid var(--ch-line);
+}
+
+/* ---------- Cards ---------- */
+.card{
+  background:linear-gradient(160deg,#272b30 0%,#1c1f23 100%);
+  border:1px solid var(--ch-line);
+  border-radius:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+  overflow:hidden;
+  transition:transform .35s var(--ch-ease),box-shadow .35s,border-color .35s;
+  animation:chRise .55s var(--ch-ease) both;
+}
+/* cursor-following spotlight (position set by scripts.js) */
+.card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(260px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.14),transparent 60%);
+  transition:opacity .3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,.35);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 22px 40px rgba(0,0,0,.5);
+}
+.card:hover::before{opacity:1}
+.card > *{position:relative;z-index:1}
+.card .fw-bolder{word-break:break-word;letter-spacing:-.01em}
+.card .btn{
+  border-radius:12px;padding:9px 20px;font-weight:600;
+  transition:transform .25s var(--ch-ease),background-color .25s,box-shadow .25s;
+}
+.card .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.4)}
+.card .btn:active{transform:scale(.96)}
+.card span[style*="background-color:red"]{
+  border-radius:999px!important;padding:3px 10px!important;font-weight:600;
+  animation:chPulse 2s ease-in-out infinite;
+}
+@keyframes chPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,.55)}50%{box-shadow:0 0 0 7px rgba(255,0,0,0)}}
+@keyframes chRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.code-main .card:nth-child(2){animation-delay:.04s}
+.code-main .card:nth-child(3){animation-delay:.08s}
+.code-main .card:nth-child(4){animation-delay:.12s}
+.code-main .card:nth-child(5){animation-delay:.16s}
+.code-main .card:nth-child(6){animation-delay:.20s}
+.code-main .card:nth-child(7){animation-delay:.24s}
+.code-main .card:nth-child(8){animation-delay:.28s}
+.code-main .card:nth-child(n+9){animation-delay:.32s}
+
+/* ---------- Loading ---------- */
+#JavaCodes{transition:opacity .25s}
+#JavaCodes.ch-loading{opacity:.45;pointer-events:none}
+#Loader-Spin{backdrop-filter:blur(6px)}
+
+/* ---------- Share / back-to-top ---------- */
+.Share,.ch-top{
+  box-shadow:0 8px 22px rgba(0,0,0,.45);
+  transition:transform .25s var(--ch-ease),box-shadow .25s,opacity .3s;
+  cursor:pointer;
+}
+.Share:hover{transform:scale(1.1) rotate(-8deg)}
+.Share:active{transform:scale(.92)}
+.ch-top{
+  position:fixed;right:15px;bottom:70px;width:45px;height:45px;border:0;border-radius:10px;
+  background:#fff;color:#212529;display:grid;place-content:center;z-index:98;
+  opacity:0;transform:translateY(12px);pointer-events:none;
+}
+.ch-top.show{opacity:1;transform:none;pointer-events:auto}
+.ch-top:hover{transform:translateY(-3px)}
+.ch-top svg{width:20px;height:20px}
+
+/* ---------- Footer, scrollbar, focus ---------- */
+footer.bg-dark{background:#1b1d20!important;border-top:1px solid var(--ch-line)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#1a1b1b}
+::-webkit-scrollbar-thumb{background:#4a4d50;border-radius:10px;border:2px solid #1a1b1b}
+::-webkit-scrollbar-thumb:hover{background:#6a6e72}
+::selection{background:#5b6cff;color:#fff}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
